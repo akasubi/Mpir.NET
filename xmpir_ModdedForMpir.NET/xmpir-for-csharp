@@ -1,0 +1,10 @@
+cp ./src/xmpir.cs ./wrapper
+cp ./src/dl4windows.cs ./_tmp
+cp ./src/dl4linux.cs ./_tmp
+cd _tmp
+gmcs -target:library dl4windows.cs
+gmcs -target:library dl4linux.cs
+cp ./dl4windows.dll ../wrapper
+cp ./dl4linux.dll ../wrapper
+cd ..
+

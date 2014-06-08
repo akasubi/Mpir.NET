@@ -1,0 +1,99 @@
+<html>
+<head>
+</head>
+<body>
+<pre>
+
+=== X-MPIR - C# wrapper for MPIR =====================================
+
+This directory contains development version of X-MPIR - C# wrapper for
+MPIR.
+
+X-MPIR has following essential features:
+* it provides same interface for 32- and 64-bit systems
+* it works under Windows and Linux
+*  C#  applications  developed  for  MS  Windows may be copied between
+32-bit  and  64-bit  systems  without  recompilation (in binary form).
+Wrapper automatically selects DLL with suitable ABI.
+*  Linux  applications may NOT be copied without recompilation between
+different  systems because different Linux distributions aren't binary
+compatible.  However,  only  native  MPIR  DLLs  have to be recompiled
+during installation.
+
+
+=== COMPILING UNDER WINDOWS ==========================================
+
+X-MPIR  is  shipped  with  precompiled "generic C" libraries which are
+slow  but  portable. If you want to compile CPU-aware version of MPIR,
+you have to build yourself 32-bit and 64-bit static libraries and copy
+them to mpir-precompiled/win32 and mpir-precompiled/win64 directories.
+If  you  are  satisfied with "generic C" build, you just have to go to
+(1).
+
+1.  edit  build-win-32.bat  and build-win-64.bat. Make sure that these
+files  contain  correct  paths to vcvars32.bat and vcvarsx86_amd64.bat
+(MSVC-specific   files  which  prepare  environment  for  command-line
+compilation).  Usually  they reside in the "C:\Program Files\Microsoft
+Visual Studio 9.0\VC\bin".
+
+2. execute build-win-32.bat if you want to use X-MPIR under Win32.
+   execute build-win-64.bat if you want to use X-MPIR under Win64.
+   These batch files generate X-MPIR native DLLs. You can call both if
+   you  want  your  application  to  work under both 32-bit and 64-bit
+   Windows systems.
+   Now you have xmpir32.dll and/or xmpir64.dll in the ./wrapper dir.
+
+3. execute xmpir-for-csharp.bat to prepare C#-specific files
+
+4. now you have:
+   * ./wrapper/xmpir.cs  - C# interface for MPIR. Include it into your
+   project.  This  file  is  platform-agnostic,  i.e.  it  can be used
+   without changes under Windows and Linux.
+   *  ./wrapper/xmpir32.dll,  ./wrapper/xmpir64.dll  - native DLLs for
+   32/64   Windows   systems.   These   DLLs   must  be  placed in the
+   application's executable directory.
+   * ./wrapper/dl4windows.dll, ./wrapper/dl4linux.dll   -  C#-specific
+   assemblies,   must   be  placed  in  the  application's  executable
+   directory. These files are platform-agnostic.
+
+
+
+=== COMPILING UNDER LINUX ============================================
+
+Under  Linux  we can't guarantee binary compatibility across different
+distributions,  so  we can't distribute precompiled binaries for MPIR.
+You have to build and install MPIR as shared library before proceeding
+to X-MPIR compilation. 
+
+0. set "+x" permissions for ./build-linux and ./xmpir-for-csharp
+
+1. execute ./build-linux "-Wl,-R,PATH_TO_MPIR".
+   Here   PATH_TO_MPIR  is  path  to  directory  where  MPIR's  shared
+   libraries are located ("/usr/lib" or "usr/local/lib").
+
+2. execute ./xmpir-for-csharp to prepare C#-specific files
+
+3. now you have:
+   * ./wrapper/xmpir.cs  - C# interface for MPIR. Include it into your
+   project.  This  file  is  platform-agnostic,  i.e.  it  can be used
+   without changes under Windows and Linux.
+   *  ./wrapper/xmpir.so - small wrapper around MPIR shared libraries.
+   This  file is platform-dependend, it should be built every time you
+   use  X-MPIR on a new system. It must be placed in the application's
+   executable directory.
+   * ./wrapper/dl4windows.dll, ./wrapper/dl4linux.dll   -  C#-specific
+   assemblies,   must   be  placed  in  the  application's  executable
+   directory. These files are platform-agnostic.
+
+
+=== USING ============================================================
+
+Well,  interface  mimics  that  of  MPIR  as closely as possible. Only
+several  input/output  related  functions  were  omitted. You can find
+demos in the ./demos directory.
+
+P.S. Never forget to include xmpir.cs into your project!
+
+</pre>
+</body>
+</html>

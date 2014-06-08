@@ -1,0 +1,51 @@
+Changes to X-MPIR
+=================
+
+Uses one single dynamic mpir loader for both Windows and Linux, so there's
+no longer the need for need for the separate dl4windows.dll and dl4linux.dll
+loaders. 
+
+
+Changes to xmpir4cs.inc
+-----------------------
+
+Moved mpz_t, mpq_t, mpf_t and gmp_randstate_t into separate files.
+
+Rewrote the mpz_t etc structs into classes that disposes the unmanaged resources, 
+and added the mpz_intptr etc types needed to support them.
+
+mp_constructor logic was changed to allow for mpz_intptr, mpq_intptr etc.
+
+Put the mpir class in a namespace. New versions of LoadLibrarySafe and 
+GetProcAddressSafe, which eliminate the need for dl4windows.dll and dl4linux.dll. 
+
+Made the mpir class partial and moved most of the non generated part of it to a 
+separate file, mpir.cs.
+
+Added [UnmanagedFunctionPointer(CallingConvention.Cdecl)] to delegate declaration generation
+and memory management functions, to avoid pInvokeStackImbalance.
+"The pInvokeStackImbalance MDA is implemented only for 32-bit x86 platforms." 
+(http://msdn.microsoft.com/en-us/library/0htdy0k3%28v=VS.100%29.aspx) 
+
+Added import and export functions for binary data.
+
+
+
+Changes to xmpir.inc
+--------------------
+Added functions:
+DLLEXPORT void UxMpir_internal_mpz_import(mpz_t rop, size_t count, int order, size_t size, int endian, size_t nails, const void *op) 
+DLLEXPORT void *UxMpir_internal_mpz_export(void *rop, size_t *countp, int order, size_t size, int endian, size_t nails, mpz_t op) 
+
+
+build-win.bat
+-------------
+New file that builds both 32- and 64-bit DLLs, and restores the search path after build. 
+
+gen-and-build-win.bat 
+---------------------
+New file that's a centralized place for setting build paths. Runs the generator and calls build-win.bat. 
+
+xmpir-for-csharp.bat
+--------------------
+Removed the no longer needed building of dl4windows.dll and dl4linux.dll. 

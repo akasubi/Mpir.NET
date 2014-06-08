@@ -1,0 +1,8 @@
+rm -f ./wrapper/xmpir.so
+cd _tmp
+cp ../src/xmpir.c xmpir.c
+gcc -fPIC -DXMPIR_FOR_LINUX -c xmpir.c
+gcc -shared -DXMPIR_FOR_LINUX $1 -Wl,-soname,xmpir.so -o ./xmpir.so xmpir.o -lmpir
+cp xmpir.so ../wrapper/xmpir.so
+cd ..
+
