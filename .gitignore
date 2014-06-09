@@ -166,6 +166,7 @@ packages/
 
 # Generated documentation folder
 docs/output/
+docs/files/doxygenOutput/
 
 # Temp folder used for publishing docs
 temp/
@@ -175,3 +176,7 @@ TestResults.xml
 
 # Nuget outputs
 nuget/*.nupkg
+xmpir_ModdedForMpir.NET/mpir-precompiled/win32/mpir.lib
+xmpir_ModdedForMpir.NET/mpir-precompiled/win64/mpir.lib
+xmpir_ModdedForMpir.NET/wrapper/xmpir32.dll
+xmpir_ModdedForMpir.NET/wrapper/xmpir64.dll

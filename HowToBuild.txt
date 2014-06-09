@@ -1,0 +1,46 @@
+How to build Mpir.NET for Windows
+=================================
+
+To make a complete build of Mpir.NET, 3 sub projects must be built in the following order:
+1) MPIR
+2) The modified X-MPIR
+3) Mpir.NET
+
+The FAKE (F# make) build script only builds the Mpir.NET part.
+
+
+Building MPIR
+-------------
+
+MPIR can probably be built with the current Visual studio version (VS2013 at the time of this writing), but I've used VS2010 because that's what the MPIR team used.
+
+1) Download MPIR from mpir.org.
+2) Get vsyasm from http://www.tortall.net/projects/yasm/
+3) Copy the vsyasm files to the VS2010 folder, e.g. C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin
+4) Install Python
+5) Run \build.vc10\mpir_config.py and add the p0 CPU target.
+6) Start Visual studio 2010 and build lib_mpir_p0. The resulting DLL ends up in lib\Win32\Release, together with a bunch of header files (it also ends up in build.vc10, but without the header files).
+7) Build lib_mpir_k8 from within Visual Studio 2010. The resulting DLL ends up in lib\x64\Release, together with a bunch of header files.
+
+8) Copy everything in lib\Win32\Release to Mpir.NET\xmpir_ModdedForUxMpir\mpir-precompiled\win32.
+9) Copy everything in lib\x64\Release to Mpir.NET\xmpir_ModdedForUxMpir\mpir-precompiled\win64.
+
+
+Building the modified X-MPIR
+----------------------------
+
+1) Install PHP (a portable version will do).
+2) Edit the paths in gen-and-build-win.bat to match your system.
+3) Open a command prompt in xmpir_ModdedForUxMpir and run gen-and-build-win.bat. The build result gets copied to the appropriate Mpir.NET folder.
+
+
+Building Mpir.NET
+-----------------
+
+Mpir.NET can be built with Visual Studio 2013, or by running build.cmd. 
+
+
+Building for Linux
+==================
+
+According to their respective authors, MPIR and X-MPIR can be built for Linux. That should probably also be true for my modified version of X-MPIR, as I have tried not to mess with the Linux specific parts. However, since I have had no need to run X-MPIR under Linux, I haven't tried it. If it works, then so should the Mpir.NET dll. Unfortunately, I can't provide any instructions for building a Linux version, but then again Linux users are accustomed to having to find out things by themselves.
