@@ -1,1 +1,155 @@
-My GitHub Page
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Mpir.NET
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="MPIR for .NET"/>
+    <meta name="author" content="John Reynolds"/>
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="/Mpir.NET/content/style.css" />
+    <script type="text/javascript" src="/Mpir.NET/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          
+          <li><a href="http://github.com/wezeku/Mpir.NET">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/Mpir.NET/index.html">Mpir.NET</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+<h1>Mpir.NET</h1>
+
+<p>Mpir.NET lets you use the MPIR library, which is a GMP fork for Windows,
+from .NET languages.</p>
+
+<p>The current version incorporates 32- and 64-bit builds of MPIR 2.6.0.</p>
+
+<div class="row">
+  <div class="span1"></div>
+  <div class="span6">
+    <div class="well well-small" id="nuget">
+      EFConcurrencyModeTest can be <a href="https://nuget.org/packages/Mpir.NET">installed from NuGet</a>:
+      <pre>PM> Install-Package Mpir.NET</pre>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+
+<p>Mpir.NET is a wrapper around the MPIR library. It's basically a fusion of modified versions
+of X-MPIR by Sergey Bochkanov and "GMP for .NET" by Emil Stefanov.</p>
+
+<h2>F# Example</h2>
+
+<p>This example shows how simple Mpir.NET use looks in F#:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">Mpir</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">NET</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">a</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">mpz_t</span>(<span class="n">756749075976907490175905790287846502134I</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">b</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="i">mpz_t</span>(<span class="n">529134916478965674697197076070175107505I</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="i">c</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 8)" onmouseover="showTip(event, 'fs3', 8)" class="i">a</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs5', 9)" onmouseover="showTip(event, 'fs5', 9)" class="i">b</span></pre>
+</td>
+</tr>
+</table>
+
+<h2>C# Example</h2>
+
+<p>A short C# example:</p>
+
+<pre lang="csharp"><span class="k">using</span> Mpir.NET;
+
+<span class="k">class</span> MpirSample
+{
+    <span class="k">static</span> <span class="k">void</span> MpirCalcs()
+    {
+        mpz_t a = <span class="k">new</span> mpz_t(12345678901234567890);
+        mpz_t b = <span class="k">new</span> mpz_t(9876543210987654321);
+        mpz_t c = a * b;
+        System.Console.WriteLine(<span class="s">"{0}"</span>, c.ToString());
+    }
+}</pre>
+
+<h2>Basics</h2>
+
+<p>mpz_t is the class representing MPIR integers. If you need to use any MPIR function 
+that doesn't have a corresponding mpz_t method, it can be found in the static mpir class,
+where the original MPIR/GMP function names are preserved. For example, call mpz_addmul like so:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span onmouseout="hideTip(event, 'fs7', 10)" onmouseover="showTip(event, 'fs7', 10)" class="i">mpir</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 11)" onmouseover="showTip(event, 'fs8', 11)" class="i">mpz_addmul</span>(<span onmouseout="hideTip(event, 'fs6', 12)" onmouseover="showTip(event, 'fs6', 12)" class="i">c</span>, <span onmouseout="hideTip(event, 'fs3', 13)" onmouseover="showTip(event, 'fs3', 13)" class="i">a</span>, <span onmouseout="hideTip(event, 'fs5', 14)" onmouseover="showTip(event, 'fs5', 14)" class="i">b</span>);</pre>
+</td>
+</tr>
+</table>
+
+<h2>Supported CPUs</h2>
+
+<p>Mpir.NET includes an MPIR 32-bit build for Pentium (p0 target in MPIR), and a 
+64-bit build for K8. In other words, Mpir.NET runs on Pentiums and later x86 32-bit
+CPUs, and all x64 64-bit CPUs. It will not run on pre-Pentium antiques or weird
+stuff like Itaniums.</p>
+
+<h2>Copyright</h2>
+
+<p>Mpir.NET library is licensed under LGPL, because that's the license used by the libraries
+that Mpir.NET is derived from. For more information see the 
+<a href="https://github.com/wezeku/Mpir.NET/blob/master/LICENSE.txt">License file</a> in the GitHub repository.</p>
+
+<div class="tip" id="fs1">namespace Mpir</div>
+<div class="tip" id="fs2">namespace Mpir.NET</div>
+<div class="tip" id="fs3">val a : mpz_t<br /><br />Full name: Index.a</div>
+<div class="tip" id="fs4">Multiple items<br />type mpz_t =<br />&#160;&#160;new : unit -&gt; mpz_t + 10 overloads<br />&#160;&#160;val value : nativeint<br />&#160;&#160;member Add : x:mpz_t -&gt; mpz_t + 2 overloads<br />&#160;&#160;member And : x:mpz_t -&gt; mpz_t<br />&#160;&#160;member BitLength : int<br />&#160;&#160;member ChangeBit : bitIndex:int * value:int -&gt; mpz_t<br />&#160;&#160;member Clone : unit -&gt; mpz_t<br />&#160;&#160;member CompareAbsTo : obj:obj -&gt; int + 6 overloads<br />&#160;&#160;member CompareTo : obj:obj -&gt; int + 7 overloads<br />&#160;&#160;member Complement : unit -&gt; mpz_t<br />&#160;&#160;...<br /><br />Full name: Mpir.NET.mpz_t<br /><br />--------------------<br />mpz_t() : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(op: mpz_t) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(op: uint32) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(op: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(op: float) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(s: string) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(op: System.Numerics.BigInteger) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(op: int64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(op: uint64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />mpz_t(s: string, _base: uint32) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="tip" id="fs5">val b : mpz_t<br /><br />Full name: Index.b</div>
+<div class="tip" id="fs6">val c : mpz_t<br /><br />Full name: Index.c</div>
+<div class="tip" id="fs7">type mpir =<br />&#160;&#160;static member GetOSString : unit -&gt; string<br />&#160;&#160;static member GetXMPIRLibraryPath : unit -&gt; string<br />&#160;&#160;static member LocateLibrary : name:string -&gt; string<br />&#160;&#160;static member Mpir_mpz_export : order:int * size:uint32 * endian:int * nails:uint32 * op:mpz_t -&gt; byte[]<br />&#160;&#160;static member Mpir_mpz_import : rop:mpz_t * count:uint32 * order:int * size:uint32 * endian:int * nails:uint32 * op:byte[] -&gt; unit<br />&#160;&#160;static member Mpir_mpz_import_by_offset : rop:mpz_t * startOffset:int * endOffset:int * order:int * size:uint32 * endian:int * nails:uint32 * op:byte[] -&gt; unit<br />&#160;&#160;static member gmp_randclear : v:gmp_randstate_t -&gt; unit<br />&#160;&#160;static member gmp_randinit_default : unit -&gt; nativeint<br />&#160;&#160;static member gmp_randinit_lc_2exp : a:mpz_t * c:uint32 * m2exp:uint64 -&gt; nativeint<br />&#160;&#160;static member gmp_randinit_mt : unit -&gt; nativeint<br />&#160;&#160;...<br /><br />Full name: Mpir.NET.mpir</div>
+<div class="tip" id="fs8">mpir.mpz_addmul(rop: mpz_t, op1: mpz_t, op2: mpz_t) : unit</div>
+
+        </div>
+        <div class="span3">
+          <img src="/Mpir.NET/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">Mpir.NET</li>
+            <li><a href="/Mpir.NET/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/Mpir.NET">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/wezeku/Mpir.NET">Source Code on GitHub</a></li>
+            <li><a href="http://github.com/wezeku/Mpir.NET/blob/master/LICENSE.txt">License</a></li>
+            <li><a href="http://github.com/wezeku/Mpir.NET/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/wezeku/Mpir.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>
