@@ -5,24 +5,32 @@
 Mpir.NET
 ========
 
-Mpir.NET lets you use the MPIR library, which is a GMP fork for Windows,
+Mpir.NET lets you use the [MPIR library](http://mpir.org), which is a GMP fork for Windows,
 from .NET languages. 
 
 The current version incorporates 32- and 64-bit builds of MPIR 2.6.0.
 
-<div class="row">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      EFConcurrencyModeTest can be <a href="https://nuget.org/packages/Mpir.NET">installed from NuGet</a>:
-      <pre>PM> Install-Package Mpir.NET</pre>
-    </div>
-  </div>
-  <div class="span1"></div>
-</div>
+Installation
+------------
 
-Mpir.NET is a wrapper around the MPIR library. It's basically a fusion of modified versions
-of X-MPIR by Sergey Bochkanov and "GMP for .NET" by Emil Stefanov.
+To use Mpir.NET, first <a href="https://nuget.org/packages/Mpir.NET">install it from NuGet</a>:
+
+<pre>PM> Install-Package Mpir.NET</pre>
+
+This will place 2 unreferenced native DLLs in your project, as shown below:
+
+![](img/solutionexplorer01.png)
+
+Now, right click xmpir64.dll in the solution explorer and select "Properties". 
+Change "Copy to Output Directory" from "Do not copy" to "Copy always":
+
+![](img/xmpir64dll_properties01.png)
+
+Repeat this for xmpir32.dll.
+
+(Unfortunately, you can't instruct NuGet to place unreferenced DLLs in your project's output 
+directory automatically, which is why you have to do this manually after adding the 
+Mpir.NET NuGet package.)
 
 F# Example
 ----------
@@ -40,6 +48,7 @@ open Mpir.NET
 let a = new mpz_t(756749075976907490175905790287846502134I)
 let b = new mpz_t(529134916478965674697197076070175107505I)
 let c = a*b
+printfn "%s" (c.ToString())
 
 (**
 C# Example
@@ -67,6 +76,12 @@ Mpir.NET includes an MPIR 32-bit build for Pentium (p0 target in MPIR), and a
 64-bit build for K8. In other words, Mpir.NET runs on Pentiums and later x86 32-bit
 CPUs, and all x64 64-bit CPUs. It will not run on pre-Pentium antiques or weird
 stuff like Itaniums.
+
+Origins
+-------
+
+Mpir.NET is basically a fusion of modified versions
+of X-MPIR by Sergey Bochkanov and "GMP for .NET" by Emil Stefanov.
 
 Copyright
 ---------

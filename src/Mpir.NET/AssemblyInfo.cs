@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProductAttribute("Mpir.NET")]
 [assembly: AssemblyCopyrightAttribute("wezeku.com")]
 [assembly: AssemblyDescriptionAttribute("MPIR library wrapper for .NET.")]
-[assembly: AssemblyVersionAttribute("0.1.0")]
-[assembly: AssemblyFileVersionAttribute("0.1.0")]
+[assembly: AssemblyVersionAttribute("0.1.2")]
+[assembly: AssemblyFileVersionAttribute("0.1.2")]
 [assembly: ComVisibleAttribute(false)]
 namespace System {
     internal static class AssemblyVersionInformation {
-        internal const string Version = "0.1.0";
+        internal const string Version = "0.1.2";
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+
     <id>@project@</id>
     <version>@build.number@</version>
     <authors>@authors@</authors>
@@ -19,10 +20,18 @@
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Numerics" targetFramework="net40" />
     </frameworkAssemblies>
+
+    <references>
+      <reference file="Mpir.NET.dll" />
+    </references>
   </metadata>
 
   <files>
     <file src="..\bin\Mpir.NET.dll" target="lib\net40" />
     <file src="..\bin\Mpir.NET.pdb" target="lib\net40" />
+    <file src="..\bin\xmpir32.dll" target="Content" />
+    <file src="..\bin\xmpir64.dll" target="Content" />
   </files>
+
+
 </package>
