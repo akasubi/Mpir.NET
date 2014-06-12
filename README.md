@@ -11,4 +11,4 @@ The current version incorporates 32- and 64-bit builds of MPIR 2.6.0.
 
 <a href="http://www.mpir.org/" target="_blank">MPIR web site.</a>
 
-<a href="http://blog.wezeku.com/2014/03/10/url-goes-here/">Associated blog post.</a>
+<a href="http://blog.wezeku.com/2014/06/12/mpir-net-nuget-package-for-high-performance-large-integers/">Associated blog post.</a>
