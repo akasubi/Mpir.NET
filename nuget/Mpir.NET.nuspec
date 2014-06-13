@@ -22,16 +22,19 @@
     </frameworkAssemblies>
 
     <references>
+      <reference file="FsMpir.NET.dll" />
       <reference file="Mpir.NET.dll" />
     </references>
   </metadata>
 
   <files>
+    <file src="..\bin\FSharp.Core.dll" target="lib\net40" />
+    <file src="..\bin\FsMpir.NET.dll" target="lib\net40" />
+    <file src="..\bin\FsMpir.NET.pdb" target="lib\net40" />
     <file src="..\bin\Mpir.NET.dll" target="lib\net40" />
     <file src="..\bin\Mpir.NET.pdb" target="lib\net40" />
     <file src="..\bin\xmpir32.dll" target="Content" />
     <file src="..\bin\xmpir64.dll" target="Content" />
   </files>
-
 
 </package>

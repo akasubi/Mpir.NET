@@ -6,12 +6,21 @@ open Mpir.NET
 open NUnit.Framework
 
 
-let bigNumStr1 = "60239597246800183089356887648914080803568478687972971429218563117893654732155483254"
+let bigNumLiteral1 = 60239597246800183089356887648914080803568478687972971429218563117893654732155483254Z
+let bigNumStr1 =    "60239597246800183089356887648914080803568478687972971429218563117893654732155483254"
 let bigint1 = bigint.Parse bigNumStr1
 
 
 // A more readable way to concatenate arrays.
 let inline private (++) (a:^T[]) (b:^T[]) = Array.append a b
+
+
+type ``mpz_t - literals`` () =
+    [<Test>]
+    static member ``Large literal`` () =
+        use z = bigNumLiteral1
+        let zStr = mpir.mpz_get_string(10u, z)
+        Assert.AreEqual(bigNumStr1, zStr)
 
 
 type ``mpz_t - import and export`` () =

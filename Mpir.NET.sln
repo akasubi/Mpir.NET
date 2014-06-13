@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpir.NET", "src\Mpir.NET\Mp
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Mpir.NET.Tests", "tests\Mpir.NET.Tests\Mpir.NET.Tests.fsproj", "{34974454-8ECA-4439-9B8F-69C4CA01B263}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsMpir.NET", "src\FsMpir.NET\FsMpir.NET.fsproj", "{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

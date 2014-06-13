@@ -63,6 +63,11 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\FsMpir.NET\FsMpir.NET.fsproj">
+      <Name>FsMpir.NET</Name>
+      <Project>{76ffb9e4-742e-406d-ac5d-0dd7a8f5464c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Mpir.NET\Mpir.NET.csproj">
       <Name>Mpir.NET</Name>
       <Project>{b396cede-c6ae-44b3-9889-18bafa317e6a}</Project>

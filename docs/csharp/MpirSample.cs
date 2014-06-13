@@ -11,7 +11,7 @@ class MpirSample
         mpz_t a = new mpz_t(12345678901234567890);
         mpz_t b = new mpz_t(9876543210987654321);
         mpz_t c = a * b;
-        System.Console.WriteLine("{0}", c.ToString());
+        System.Console.WriteLine("{0}", c);
     }
 }
 // [/intro-sample]

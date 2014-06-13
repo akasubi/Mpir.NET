@@ -6,3 +6,6 @@
 
 #### 0.1.2 - June 2014
 * Fixed Nuspec errors.
+
+#### 0.2.0 - June 2014
+* Added Z suffix for mpz_t literals in F#.

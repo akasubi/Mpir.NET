@@ -28,6 +28,9 @@ Change "Copy to Output Directory" from "Do not copy" to "Copy always":
 
 Repeat this for xmpir32.dll.
 
+If you don't change the copy options for the xmpirXX DLLs, you will get a 
+System.TypeInitializationException when you use Mpir.NET.
+
 (Unfortunately, you can't instruct NuGet to place unreferenced DLLs in your project's output 
 directory automatically, which is why you have to do this manually after adding the 
 Mpir.NET NuGet package.)
@@ -35,20 +38,22 @@ Mpir.NET NuGet package.)
 F# Example
 ----------
 
-This example shows how simple Mpir.NET use looks in F#:
+The type representing MPIR integers is mpz\_t. In F#, you can write literals suffixed with Z, to 
+create mpz\_t objects, as in this simple example:
 
 *)
 
 (*** hide ***)
 #r "Mpir.NET"
+#r "FsMpir.NET"
 (** *)
 
 open Mpir.NET
 
-let a = new mpz_t(756749075976907490175905790287846502134I)
-let b = new mpz_t(529134916478965674697197076070175107505I)
+let a = 756749075976907490175905790287846502134Z
+let b = 529134916478965674697197076070175107505Z
 let c = a*b
-printfn "%s" (c.ToString())
+printfn "%O" c
 
 (**
 C# Example
@@ -61,9 +66,10 @@ A short C# example:
 Basics
 ------
 
-mpz\_t is the class representing MPIR integers. If you need to use any MPIR function 
-that doesn't have a corresponding mpz\_t method, it can be found in the static mpir class,
-where the original MPIR/GMP function names are preserved. For example, call mpz\_addmul like so:
+As mentioned before, mpz\_t is the class that represents MPIR integers. If you need to use 
+any MPIR function that doesn't have a corresponding mpz\_t method, it can be found in the 
+static mpir class, where the original MPIR/GMP function names are preserved. For example, 
+call mpz\_addmul like so:
 
 *)
 mpir.mpz_addmul(c, a, b);
