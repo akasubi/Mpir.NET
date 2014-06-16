@@ -35,6 +35,7 @@
     <file src="..\bin\Mpir.NET.pdb" target="lib\net40" />
     <file src="..\bin\xmpir32.dll" target="Content" />
     <file src="..\bin\xmpir64.dll" target="Content" />
+    <file src="install.ps1" target="tools\install.ps1" />
   </files>
 
 </package>

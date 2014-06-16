@@ -42,6 +42,13 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Mpir.NET.Tests", "tests\Mpi
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsMpir.NET", "src\FsMpir.NET\FsMpir.NET.fsproj", "{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{390C6CDE-5CBC-4EF1-BE4E-496189D4CC11}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\install.ps1 = nuget\install.ps1
+		nuget\Mpir.NET.nuspec = nuget\Mpir.NET.nuspec
+		nuget\publish.cmd = nuget\publish.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

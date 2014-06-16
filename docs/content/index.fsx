@@ -10,30 +10,16 @@ from .NET languages.
 
 The current version incorporates 32- and 64-bit builds of MPIR 2.6.0.
 
-Installation
-------------
-
-To use Mpir.NET, first <a href="https://nuget.org/packages/Mpir.NET">install it from NuGet</a>:
-
-<pre>PM> Install-Package Mpir.NET</pre>
-
-This will place 2 unreferenced native DLLs in your project, as shown below:
-
-![](img/solutionexplorer01.png)
-
-Now, right click xmpir64.dll in the solution explorer and select "Properties". 
-Change "Copy to Output Directory" from "Do not copy" to "Copy always":
-
-![](img/xmpir64dll_properties01.png)
-
-Repeat this for xmpir32.dll.
-
-If you don't change the copy options for the xmpirXX DLLs, you will get a 
-System.TypeInitializationException when you use Mpir.NET.
-
-(Unfortunately, you can't instruct NuGet to place unreferenced DLLs in your project's output 
-directory automatically, which is why you have to do this manually after adding the 
-Mpir.NET NuGet package.)
+<div class="row">
+  <div class="span1"></div>
+  <div class="span6">
+    <div class="well well-small" id="nuget">
+      Mpir.NET can be <a href="https://nuget.org/packages/Mpir.NET">installed from NuGet</a>:
+      <pre>PM> Install-Package Mpir.NET</pre>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
 
 F# Example
 ----------

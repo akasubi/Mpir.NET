@@ -9,3 +9,6 @@
 
 #### 0.2.0 - June 2014
 * Added Z suffix for mpz_t literals in F#.
+
+#### 0.2.1 - June 2014
+* Added NuGet install script.
