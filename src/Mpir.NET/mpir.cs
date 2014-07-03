@@ -149,13 +149,13 @@ namespace Mpir.NET
         public static unsafe void Mpir_mpz_import(mpz_t rop, uint count, int order, uint size, int endian, uint nails, byte[] op)
         {
             fixed (void* srcPtr = op) {
-                mpir.Mpir_internal_mpz_import(rop.value, count, order, size, endian, nails, srcPtr);
+                mpir.Mpir_internal_mpz_import(rop.val, count, order, size, endian, nails, srcPtr);
             }
         }
         public static unsafe void Mpir_mpz_import_by_offset(mpz_t rop, int startOffset, int endOffset, int order, uint size, int endian, uint nails, byte[] op)
         {
             fixed (byte* srcPtr = op) {
-                mpir.Mpir_internal_mpz_import(rop.value, (uint)(endOffset-startOffset+1), order, size, endian, nails, srcPtr+startOffset);
+                mpir.Mpir_internal_mpz_import(rop.val, (uint)(endOffset-startOffset+1), order, size, endian, nails, srcPtr+startOffset);
             }
         }
 
@@ -169,7 +169,7 @@ namespace Mpir.NET
             var  destBuf = new byte[bufSize];
             fixed (void* destPtr = destBuf) {
                 // null countp argument, because we already know how large the result will be.
-                mpir.Mpir_internal_mpz_export(destPtr, null, order, size, endian, nails, op.value);
+                mpir.Mpir_internal_mpz_export(destPtr, null, order, size, endian, nails, op.val);
             }
             return destBuf;
         }

@@ -9,18 +9,18 @@ namespace Mpir.NET
     {
         #region Data
 
-        public IntPtr value;
+        public IntPtr val;
         private bool disposed = false;
         
         #endregion
 
         #region Creation and destruction
 
-        public mpf_t(mpf_t op)                { value = mpir.mpf_init_set(op);           }
-        public mpf_t(int op)                  { value = mpir.mpf_init_set_si(op);        }
-        public mpf_t(uint op)                 { value = mpir.mpf_init_set_ui(op);        }
-        public mpf_t(double op)               { value = mpir.mpf_init_set_d(op);         }
-        public mpf_t(string s, uint _base)    { value = mpir.mpf_init_set_str(s, _base); }
+        public mpf_t(mpf_t op)                { val = mpir.mpf_init_set(op);           }
+        public mpf_t(int op)                  { val = mpir.mpf_init_set_si(op);        }
+        public mpf_t(uint op)                 { val = mpir.mpf_init_set_ui(op);        }
+        public mpf_t(double op)               { val = mpir.mpf_init_set_d(op);         }
+        public mpf_t(string s, uint _base)    { val = mpir.mpf_init_set_str(s, _base); }
         public mpf_t(string s) : this(s, 10u) {}
 
         // Initialization with mpf_init2 should not be confused with mpf_t construction
@@ -30,7 +30,7 @@ namespace Mpir.NET
         private enum init2_type { init2 }
         private mpf_t(init2_type dummy, uint arg) 
         { 
-            value = mpir.mpf_init2(arg);
+            val = mpir.mpf_init2(arg);
         }
 
         ~mpf_t()

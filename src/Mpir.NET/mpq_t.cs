@@ -12,14 +12,14 @@ namespace Mpir.NET
     {
         #region Data
 
-        public IntPtr value;
+        public IntPtr val;
         private bool disposed = false;
         
         #endregion
 
         #region Creation and destruction
 
-        public mpq_t() { value = mpir.mpq_init(); }
+        public mpq_t() { val = mpir.mpq_init(); }
 
         public mpq_t(string str) : this(str, 10u) {}
 

@@ -41,6 +41,9 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+// Disable warning about missing XML comments.
+#pragma warning disable 1591
+
 namespace Mpir.NET 
 {
 

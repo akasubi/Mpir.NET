@@ -12,24 +12,24 @@ namespace Mpir.NET
         #region Data
         private const uint s_defaultStringBase = 10u;
 
-        public IntPtr value;
+        public IntPtr val;
         private bool disposed = false;
         #endregion
 
         #region Creation and destruction
 
         /// Initializes a new mpz_t to 0.
-        public mpz_t() { value = mpir.mpz_init(); }
+        public mpz_t() { val = mpir.mpz_init(); }
         /// Initializes a new mpz_t to the same value as op.
-        public mpz_t(mpz_t op)                { value = mpir.mpz_init_set(op);    }
+        public mpz_t(mpz_t op)                { val = mpir.mpz_init_set(op);    }
         /// Initializes a new mpz_t to the unsigned int op.
-        public mpz_t(uint op) { value = mpir.mpz_init_set_ui(op); }
+        public mpz_t(uint op) { val = mpir.mpz_init_set_ui(op); }
         /// Initializes a new mpz_t to the int op.
-        public mpz_t(int op) { value = mpir.mpz_init_set_si(op); }
+        public mpz_t(int op) { val = mpir.mpz_init_set_si(op); }
         /// Initializes a new mpz_t to the double op.
-        public mpz_t(double op) { value = mpir.mpz_init_set_d(op); }
+        public mpz_t(double op) { val = mpir.mpz_init_set_d(op); }
         /// Initializes a new mpz_t to string s, parsed as an integer in the specified base.
-        public mpz_t(string s, uint _base) { value = mpir.mpz_init_set_str(s, _base); }
+        public mpz_t(string s, uint _base) { val = mpir.mpz_init_set_str(s, _base); }
         /// Initializes a new mpz_t to string s, parsed as an integer in base 10.
         public mpz_t(string s) : this(s, s_defaultStringBase) { }
         /// Initializes a new mpz_t to the BigInteger op.
@@ -45,7 +45,7 @@ namespace Mpir.NET
         private enum init2_type { init2 }
         private mpz_t(init2_type dummy, ulong n) 
         { 
-            value = mpir.mpz_init2(n);
+            val = mpir.mpz_init2(n);
         }
 
         /// Initializes a new mpz_t to the long op.

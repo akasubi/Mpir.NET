@@ -1015,7 +1015,7 @@ public static partial class mpir
     {
         int __retval;
         mpz_intptr result;
-        __retval= xmpir_mpz_init_set(out result, op.value);
+        __retval= xmpir_mpz_init_set(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1078,7 +1078,7 @@ public static partial class mpir
     {
         int __retval;
         mpf_intptr result;
-        __retval= xmpir_mpf_init_set(out result, op.value);
+        __retval= xmpir_mpf_init_set(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1124,19 +1124,19 @@ public static partial class mpir
     public static void mpz_clear(mpz_t v)
     {
         int __retval;
-        __retval= xmpir_mpz_clear(v.value);
+        __retval= xmpir_mpz_clear(v.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_clear(mpq_t v)
     {
         int __retval;
-        __retval= xmpir_mpq_clear(v.value);
+        __retval= xmpir_mpq_clear(v.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_clear(mpf_t v)
     {
         int __retval;
-        __retval= xmpir_mpf_clear(v.value);
+        __retval= xmpir_mpf_clear(v.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void xmpir_dummy()
@@ -1157,7 +1157,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_xmpir_dummy_3mpz(out result, op0.value, op1.value, op2.value);
+        __retval= xmpir_xmpir_dummy_3mpz(out result, op0.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1181,7 +1181,7 @@ public static partial class mpir
     {
         int __retval;
         gmp_randstate_intptr result;
-        __retval= xmpir_gmp_randinit_lc_2exp(out result, a.value, c, m2exp);
+        __retval= xmpir_gmp_randinit_lc_2exp(out result, a.val, c, m2exp);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1202,7 +1202,7 @@ public static partial class mpir
     public static void gmp_randseed(gmp_randstate_t state, mpz_t seed)
     {
         int __retval;
-        __retval= xmpir_gmp_randseed(state.val, seed.value);
+        __retval= xmpir_gmp_randseed(state.val, seed.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void gmp_randseed_ui(gmp_randstate_t state, uint seed)
@@ -1230,7 +1230,7 @@ public static partial class mpir
     public static void mpz_realloc2(mpz_t x, uint n)
     {
         int __retval;
-        __retval= xmpir_mpz_realloc2(x.value, n);
+        __retval= xmpir_mpz_realloc2(x.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_set_default_prec(ulong prec)
@@ -1250,37 +1250,37 @@ public static partial class mpir
     public static void mpz_set(mpz_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_set(rop.value, op.value);
+        __retval= xmpir_mpz_set(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_set_ui(mpz_t rop, uint op)
     {
         int __retval;
-        __retval= xmpir_mpz_set_ui(rop.value, op);
+        __retval= xmpir_mpz_set_ui(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_set_si(mpz_t rop, int op)
     {
         int __retval;
-        __retval= xmpir_mpz_set_si(rop.value, op);
+        __retval= xmpir_mpz_set_si(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_set_d(mpz_t rop, double op)
     {
         int __retval;
-        __retval= xmpir_mpz_set_d(rop.value, op);
+        __retval= xmpir_mpz_set_d(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_set_q(mpz_t rop, mpq_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_set_q(rop.value, op.value);
+        __retval= xmpir_mpz_set_q(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_set_f(mpz_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_set_f(rop.value, op.value);
+        __retval= xmpir_mpz_set_f(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_set_str(mpz_t rop, string str, uint _base)
@@ -1292,7 +1292,7 @@ public static partial class mpir
         __retval = xmpir_malloc(out __str, str.Length+1);
         if( __retval!=0 ) HandleError(__retval);
         Marshal.Copy(__ba_str, 0, __str, str.Length+1);
-        __retval= xmpir_mpz_set_str(out result, rop.value, __str, _base);
+        __retval= xmpir_mpz_set_str(out result, rop.val, __str, _base);
         if( __retval!=0 ) HandleError(__retval);
        __retval = xmpir_free(__str);
        if( __retval!=0 ) HandleError(__retval);
@@ -1301,14 +1301,14 @@ public static partial class mpir
     public static void mpz_swap(mpz_t rop1, mpz_t rop2)
     {
         int __retval;
-        __retval= xmpir_mpz_swap(rop1.value, rop2.value);
+        __retval= xmpir_mpz_swap(rop1.val, rop2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static uint mpz_get_ui(mpz_t op)
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_get_ui(out result, op.value);
+        __retval= xmpir_mpz_get_ui(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1316,7 +1316,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_get_si(out result, op.value);
+        __retval= xmpir_mpz_get_si(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1324,7 +1324,7 @@ public static partial class mpir
     {
         int __retval;
         double result;
-        __retval= xmpir_mpz_get_d(out result, op.value);
+        __retval= xmpir_mpz_get_d(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1333,7 +1333,7 @@ public static partial class mpir
         int __retval;
         string result;
         IntPtr __result;
-        __retval= xmpir_mpz_get_string(out __result, _base, op.value);
+        __retval= xmpir_mpz_get_string(out __result, _base, op.val);
         if( __retval!=0 ) HandleError(__retval);
        result = Marshal.PtrToStringAnsi(__result);
        __retval = xmpir_free(__result);
@@ -1343,116 +1343,116 @@ public static partial class mpir
     public static void mpz_add(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_add(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_add(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_add_ui(mpz_t rop, mpz_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpz_add_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_add_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_sub(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_sub(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_sub(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_sub_ui(mpz_t rop, mpz_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpz_sub_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_sub_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_ui_sub(mpz_t rop, uint op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_ui_sub(rop.value, op1, op2.value);
+        __retval= xmpir_mpz_ui_sub(rop.val, op1, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_mul(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_mul(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_mul(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_mul_si(mpz_t rop, mpz_t op1, int op2)
     {
         int __retval;
-        __retval= xmpir_mpz_mul_si(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_mul_si(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_mul_ui(mpz_t rop, mpz_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpz_mul_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_mul_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_addmul(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_addmul(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_addmul(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_addmul_ui(mpz_t rop, mpz_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpz_addmul_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_addmul_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_submul(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_submul(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_submul(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_submul_ui(mpz_t rop, mpz_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpz_submul_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_submul_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_mul_2exp(mpz_t rop, mpz_t op1, ulong op2)
     {
         int __retval;
-        __retval= xmpir_mpz_mul_2exp(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_mul_2exp(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_neg(mpz_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_neg(rop.value, op.value);
+        __retval= xmpir_mpz_neg(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_abs(mpz_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_abs(rop.value, op.value);
+        __retval= xmpir_mpz_abs(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_cdiv_q(mpz_t q, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_cdiv_q(q.value, n.value, d.value);
+        __retval= xmpir_mpz_cdiv_q(q.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_cdiv_r(mpz_t r, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_cdiv_r(r.value, n.value, d.value);
+        __retval= xmpir_mpz_cdiv_r(r.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_cdiv_qr(mpz_t q, mpz_t r, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_cdiv_qr(q.value, r.value, n.value, d.value);
+        __retval= xmpir_mpz_cdiv_qr(q.val, r.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static uint mpz_cdiv_q_ui(mpz_t q, mpz_t n, uint d)
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_cdiv_q_ui(out result, q.value, n.value, d);
+        __retval= xmpir_mpz_cdiv_q_ui(out result, q.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1460,7 +1460,7 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_cdiv_r_ui(out result, r.value, n.value, d);
+        __retval= xmpir_mpz_cdiv_r_ui(out result, r.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1468,7 +1468,7 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_cdiv_qr_ui(out result, q.value, r.value, n.value, d);
+        __retval= xmpir_mpz_cdiv_qr_ui(out result, q.val, r.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1476,45 +1476,45 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_cdiv_ui(out result, n.value, d);
+        __retval= xmpir_mpz_cdiv_ui(out result, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_cdiv_q_2exp(mpz_t q, mpz_t n, ulong b)
     {
         int __retval;
-        __retval= xmpir_mpz_cdiv_q_2exp(q.value, n.value, b);
+        __retval= xmpir_mpz_cdiv_q_2exp(q.val, n.val, b);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_cdiv_r_2exp(mpz_t r, mpz_t n, ulong b)
     {
         int __retval;
-        __retval= xmpir_mpz_cdiv_r_2exp(r.value, n.value, b);
+        __retval= xmpir_mpz_cdiv_r_2exp(r.val, n.val, b);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_fdiv_q(mpz_t q, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_fdiv_q(q.value, n.value, d.value);
+        __retval= xmpir_mpz_fdiv_q(q.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_fdiv_r(mpz_t r, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_fdiv_r(r.value, n.value, d.value);
+        __retval= xmpir_mpz_fdiv_r(r.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_fdiv_qr(mpz_t q, mpz_t r, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_fdiv_qr(q.value, r.value, n.value, d.value);
+        __retval= xmpir_mpz_fdiv_qr(q.val, r.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static uint mpz_fdiv_q_ui(mpz_t q, mpz_t n, uint d)
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_fdiv_q_ui(out result, q.value, n.value, d);
+        __retval= xmpir_mpz_fdiv_q_ui(out result, q.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1522,7 +1522,7 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_fdiv_r_ui(out result, r.value, n.value, d);
+        __retval= xmpir_mpz_fdiv_r_ui(out result, r.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1530,7 +1530,7 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_fdiv_qr_ui(out result, q.value, r.value, n.value, d);
+        __retval= xmpir_mpz_fdiv_qr_ui(out result, q.val, r.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1538,45 +1538,45 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_fdiv_ui(out result, n.value, d);
+        __retval= xmpir_mpz_fdiv_ui(out result, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_fdiv_q_2exp(mpz_t q, mpz_t n, ulong b)
     {
         int __retval;
-        __retval= xmpir_mpz_fdiv_q_2exp(q.value, n.value, b);
+        __retval= xmpir_mpz_fdiv_q_2exp(q.val, n.val, b);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_fdiv_r_2exp(mpz_t r, mpz_t n, ulong b)
     {
         int __retval;
-        __retval= xmpir_mpz_fdiv_r_2exp(r.value, n.value, b);
+        __retval= xmpir_mpz_fdiv_r_2exp(r.val, n.val, b);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_tdiv_q(mpz_t q, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_tdiv_q(q.value, n.value, d.value);
+        __retval= xmpir_mpz_tdiv_q(q.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_tdiv_r(mpz_t r, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_tdiv_r(r.value, n.value, d.value);
+        __retval= xmpir_mpz_tdiv_r(r.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_tdiv_qr(mpz_t q, mpz_t r, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_tdiv_qr(q.value, r.value, n.value, d.value);
+        __retval= xmpir_mpz_tdiv_qr(q.val, r.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static uint mpz_tdiv_q_ui(mpz_t q, mpz_t n, uint d)
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_tdiv_q_ui(out result, q.value, n.value, d);
+        __retval= xmpir_mpz_tdiv_q_ui(out result, q.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1584,7 +1584,7 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_tdiv_r_ui(out result, r.value, n.value, d);
+        __retval= xmpir_mpz_tdiv_r_ui(out result, r.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1592,7 +1592,7 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_tdiv_qr_ui(out result, q.value, r.value, n.value, d);
+        __retval= xmpir_mpz_tdiv_qr_ui(out result, q.val, r.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1600,53 +1600,53 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_tdiv_ui(out result, n.value, d);
+        __retval= xmpir_mpz_tdiv_ui(out result, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_tdiv_q_2exp(mpz_t q, mpz_t n, ulong b)
     {
         int __retval;
-        __retval= xmpir_mpz_tdiv_q_2exp(q.value, n.value, b);
+        __retval= xmpir_mpz_tdiv_q_2exp(q.val, n.val, b);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_tdiv_r_2exp(mpz_t r, mpz_t n, ulong b)
     {
         int __retval;
-        __retval= xmpir_mpz_tdiv_r_2exp(r.value, n.value, b);
+        __retval= xmpir_mpz_tdiv_r_2exp(r.val, n.val, b);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_mod(mpz_t r, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_mod(r.value, n.value, d.value);
+        __retval= xmpir_mpz_mod(r.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static uint mpz_mod_ui(mpz_t r, mpz_t n, uint d)
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_mod_ui(out result, r.value, n.value, d);
+        __retval= xmpir_mpz_mod_ui(out result, r.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_divexact(mpz_t q, mpz_t n, mpz_t d)
     {
         int __retval;
-        __retval= xmpir_mpz_divexact(q.value, n.value, d.value);
+        __retval= xmpir_mpz_divexact(q.val, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_divexact_ui(mpz_t q, mpz_t n, uint d)
     {
         int __retval;
-        __retval= xmpir_mpz_divexact_ui(q.value, n.value, d);
+        __retval= xmpir_mpz_divexact_ui(q.val, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_divisible_p(mpz_t n, mpz_t d)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_divisible_p(out result, n.value, d.value);
+        __retval= xmpir_mpz_divisible_p(out result, n.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1654,7 +1654,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_divisible_ui_p(out result, n.value, d);
+        __retval= xmpir_mpz_divisible_ui_p(out result, n.val, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1662,7 +1662,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_divisible_2exp_p(out result, n.value, b);
+        __retval= xmpir_mpz_divisible_2exp_p(out result, n.val, b);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1670,7 +1670,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_congruent_p(out result, n.value, c.value, d.value);
+        __retval= xmpir_mpz_congruent_p(out result, n.val, c.val, d.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1678,7 +1678,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_congruent_ui_p(out result, n.value, c, d);
+        __retval= xmpir_mpz_congruent_ui_p(out result, n.val, c, d);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1686,65 +1686,65 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_congruent_2exp_p(out result, n.value, c.value, b);
+        __retval= xmpir_mpz_congruent_2exp_p(out result, n.val, c.val, b);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_powm(mpz_t rop, mpz_t _base, mpz_t _exp, mpz_t _mod)
     {
         int __retval;
-        __retval= xmpir_mpz_powm(rop.value, _base.value, _exp.value, _mod.value);
+        __retval= xmpir_mpz_powm(rop.val, _base.val, _exp.val, _mod.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_powm_ui(mpz_t rop, mpz_t _base, uint _exp, mpz_t _mod)
     {
         int __retval;
-        __retval= xmpir_mpz_powm_ui(rop.value, _base.value, _exp, _mod.value);
+        __retval= xmpir_mpz_powm_ui(rop.val, _base.val, _exp, _mod.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_pow_ui(mpz_t rop, mpz_t _base, uint _exp)
     {
         int __retval;
-        __retval= xmpir_mpz_pow_ui(rop.value, _base.value, _exp);
+        __retval= xmpir_mpz_pow_ui(rop.val, _base.val, _exp);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_ui_pow_ui(mpz_t rop, uint _base, uint _exp)
     {
         int __retval;
-        __retval= xmpir_mpz_ui_pow_ui(rop.value, _base, _exp);
+        __retval= xmpir_mpz_ui_pow_ui(rop.val, _base, _exp);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_root(mpz_t rop, mpz_t op, uint n)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_root(out result, rop.value, op.value, n);
+        __retval= xmpir_mpz_root(out result, rop.val, op.val, n);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_rootrem(mpz_t root, mpz_t rem, mpz_t u, uint n)
     {
         int __retval;
-        __retval= xmpir_mpz_rootrem(root.value, rem.value, u.value, n);
+        __retval= xmpir_mpz_rootrem(root.val, rem.val, u.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_sqrt(mpz_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_sqrt(rop.value, op.value);
+        __retval= xmpir_mpz_sqrt(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_sqrtrem(mpz_t rop1, mpz_t rop2, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_sqrtrem(rop1.value, rop2.value, op.value);
+        __retval= xmpir_mpz_sqrtrem(rop1.val, rop2.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_perfect_power_p(mpz_t op)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_perfect_power_p(out result, op.value);
+        __retval= xmpir_mpz_perfect_power_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1752,7 +1752,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_perfect_square_p(out result, op.value);
+        __retval= xmpir_mpz_perfect_square_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1760,53 +1760,53 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_probab_prime_p(out result, n.value, reps);
+        __retval= xmpir_mpz_probab_prime_p(out result, n.val, reps);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_nextprime(mpz_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_nextprime(rop.value, op.value);
+        __retval= xmpir_mpz_nextprime(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_gcd(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_gcd(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_gcd(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static uint mpz_gcd_ui(mpz_t rop, mpz_t op1, uint op2)
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_gcd_ui(out result, rop.value, op1.value, op2);
+        __retval= xmpir_mpz_gcd_ui(out result, rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_gcdext(mpz_t g, mpz_t s, mpz_t t, mpz_t a, mpz_t b)
     {
         int __retval;
-        __retval= xmpir_mpz_gcdext(g.value, s.value, t.value, a.value, b.value);
+        __retval= xmpir_mpz_gcdext(g.val, s.val, t.val, a.val, b.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_lcm(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_lcm(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_lcm(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_lcm_ui(mpz_t rop, mpz_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpz_lcm_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpz_lcm_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_invert(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_invert(out result, rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_invert(out result, rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1814,7 +1814,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_jacobi(out result, a.value, b.value);
+        __retval= xmpir_mpz_jacobi(out result, a.val, b.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1822,7 +1822,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_legendre(out result, a.value, p.value);
+        __retval= xmpir_mpz_legendre(out result, a.val, p.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1830,7 +1830,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_kronecker(out result, a.value, b.value);
+        __retval= xmpir_mpz_kronecker(out result, a.val, b.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1838,7 +1838,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_kronecker_si(out result, a.value, b);
+        __retval= xmpir_mpz_kronecker_si(out result, a.val, b);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1846,7 +1846,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_kronecker_ui(out result, a.value, b);
+        __retval= xmpir_mpz_kronecker_ui(out result, a.val, b);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1854,7 +1854,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_si_kronecker(out result, a, b.value);
+        __retval= xmpir_mpz_si_kronecker(out result, a, b.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1862,7 +1862,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_ui_kronecker(out result, a, b.value);
+        __retval= xmpir_mpz_ui_kronecker(out result, a, b.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1870,57 +1870,57 @@ public static partial class mpir
     {
         int __retval;
         ulong result;
-        __retval= xmpir_mpz_remove(out result, rop.value, op.value, f.value);
+        __retval= xmpir_mpz_remove(out result, rop.val, op.val, f.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_fac_ui(mpz_t rop, uint op)
     {
         int __retval;
-        __retval= xmpir_mpz_fac_ui(rop.value, op);
+        __retval= xmpir_mpz_fac_ui(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_bin_ui(mpz_t rop, mpz_t n, uint k)
     {
         int __retval;
-        __retval= xmpir_mpz_bin_ui(rop.value, n.value, k);
+        __retval= xmpir_mpz_bin_ui(rop.val, n.val, k);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_bin_uiui(mpz_t rop, uint n, uint k)
     {
         int __retval;
-        __retval= xmpir_mpz_bin_uiui(rop.value, n, k);
+        __retval= xmpir_mpz_bin_uiui(rop.val, n, k);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_fib_ui(mpz_t fn, uint n)
     {
         int __retval;
-        __retval= xmpir_mpz_fib_ui(fn.value, n);
+        __retval= xmpir_mpz_fib_ui(fn.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_fib2_ui(mpz_t fn, mpz_t fnsub1, uint n)
     {
         int __retval;
-        __retval= xmpir_mpz_fib2_ui(fn.value, fnsub1.value, n);
+        __retval= xmpir_mpz_fib2_ui(fn.val, fnsub1.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_lucnum_ui(mpz_t ln, uint n)
     {
         int __retval;
-        __retval= xmpir_mpz_lucnum_ui(ln.value, n);
+        __retval= xmpir_mpz_lucnum_ui(ln.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_lucnum2_ui(mpz_t ln, mpz_t lnsub1, uint n)
     {
         int __retval;
-        __retval= xmpir_mpz_lucnum2_ui(ln.value, lnsub1.value, n);
+        __retval= xmpir_mpz_lucnum2_ui(ln.val, lnsub1.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_cmp(mpz_t op1, mpz_t op2)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_cmp(out result, op1.value, op2.value);
+        __retval= xmpir_mpz_cmp(out result, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1928,7 +1928,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_cmp_d(out result, op1.value, op2);
+        __retval= xmpir_mpz_cmp_d(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1936,7 +1936,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_cmp_si(out result, op1.value, op2);
+        __retval= xmpir_mpz_cmp_si(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1944,7 +1944,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_cmp_ui(out result, op1.value, op2);
+        __retval= xmpir_mpz_cmp_ui(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1952,7 +1952,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_cmpabs(out result, op1.value, op2.value);
+        __retval= xmpir_mpz_cmpabs(out result, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1960,7 +1960,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_cmpabs_d(out result, op1.value, op2);
+        __retval= xmpir_mpz_cmpabs_d(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1968,7 +1968,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_cmpabs_ui(out result, op1.value, op2);
+        __retval= xmpir_mpz_cmpabs_ui(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -1976,39 +1976,39 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_sgn(out result, op.value);
+        __retval= xmpir_mpz_sgn(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_and(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_and(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_and(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_ior(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_ior(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_ior(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_xor(mpz_t rop, mpz_t op1, mpz_t op2)
     {
         int __retval;
-        __retval= xmpir_mpz_xor(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpz_xor(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_com(mpz_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpz_com(rop.value, op.value);
+        __retval= xmpir_mpz_com(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static ulong mpz_popcount(mpz_t op)
     {
         int __retval;
         ulong result;
-        __retval= xmpir_mpz_popcount(out result, op.value);
+        __retval= xmpir_mpz_popcount(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2016,7 +2016,7 @@ public static partial class mpir
     {
         int __retval;
         ulong result;
-        __retval= xmpir_mpz_hamdist(out result, op1.value, op2.value);
+        __retval= xmpir_mpz_hamdist(out result, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2024,7 +2024,7 @@ public static partial class mpir
     {
         int __retval;
         ulong result;
-        __retval= xmpir_mpz_scan0(out result, op.value, starting_bit);
+        __retval= xmpir_mpz_scan0(out result, op.val, starting_bit);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2032,59 +2032,59 @@ public static partial class mpir
     {
         int __retval;
         ulong result;
-        __retval= xmpir_mpz_scan1(out result, op.value, starting_bit);
+        __retval= xmpir_mpz_scan1(out result, op.val, starting_bit);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_setbit(mpz_t rop, ulong bit_index)
     {
         int __retval;
-        __retval= xmpir_mpz_setbit(rop.value, bit_index);
+        __retval= xmpir_mpz_setbit(rop.val, bit_index);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_clrbit(mpz_t rop, ulong bit_index)
     {
         int __retval;
-        __retval= xmpir_mpz_clrbit(rop.value, bit_index);
+        __retval= xmpir_mpz_clrbit(rop.val, bit_index);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_combit(mpz_t rop, ulong bit_index)
     {
         int __retval;
-        __retval= xmpir_mpz_combit(rop.value, bit_index);
+        __retval= xmpir_mpz_combit(rop.val, bit_index);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_tstbit(mpz_t op, ulong bit_index)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_tstbit(out result, op.value, bit_index);
+        __retval= xmpir_mpz_tstbit(out result, op.val, bit_index);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpz_urandomb(mpz_t rop, gmp_randstate_t state, ulong n)
     {
         int __retval;
-        __retval= xmpir_mpz_urandomb(rop.value, state.val, n);
+        __retval= xmpir_mpz_urandomb(rop.val, state.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_urandomm(mpz_t rop, gmp_randstate_t state, mpz_t n)
     {
         int __retval;
-        __retval= xmpir_mpz_urandomm(rop.value, state.val, n.value);
+        __retval= xmpir_mpz_urandomm(rop.val, state.val, n.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpz_rrandomb(mpz_t rop, gmp_randstate_t state, ulong n)
     {
         int __retval;
-        __retval= xmpir_mpz_rrandomb(rop.value, state.val, n);
+        __retval= xmpir_mpz_rrandomb(rop.val, state.val, n);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpz_fits_uint_p(mpz_t op)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_fits_uint_p(out result, op.value);
+        __retval= xmpir_mpz_fits_uint_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2092,7 +2092,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_fits_sint_p(out result, op.value);
+        __retval= xmpir_mpz_fits_sint_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2100,7 +2100,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_odd_p(out result, op.value);
+        __retval= xmpir_mpz_odd_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2108,7 +2108,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpz_even_p(out result, op.value);
+        __retval= xmpir_mpz_even_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2116,38 +2116,38 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpz_sizeinbase(out result, op.value, _base);
+        __retval= xmpir_mpz_sizeinbase(out result, op.val, _base);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpq_canonicalize(mpq_t op)
     {
         int __retval;
-        __retval= xmpir_mpq_canonicalize(op.value);
+        __retval= xmpir_mpq_canonicalize(op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_set(mpq_t rop, mpq_t op)
     {
         int __retval;
-        __retval= xmpir_mpq_set(rop.value, op.value);
+        __retval= xmpir_mpq_set(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_set_z(mpq_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpq_set_z(rop.value, op.value);
+        __retval= xmpir_mpq_set_z(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_set_ui(mpq_t rop, uint op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpq_set_ui(rop.value, op1, op2);
+        __retval= xmpir_mpq_set_ui(rop.val, op1, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_set_si(mpq_t rop, int op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpq_set_si(rop.value, op1, op2);
+        __retval= xmpir_mpq_set_si(rop.val, op1, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpq_set_str(mpq_t rop, string str, uint _base)
@@ -2159,7 +2159,7 @@ public static partial class mpir
         __retval = xmpir_malloc(out __str, str.Length+1);
         if( __retval!=0 ) HandleError(__retval);
         Marshal.Copy(__ba_str, 0, __str, str.Length+1);
-        __retval= xmpir_mpq_set_str(out result, rop.value, __str, _base);
+        __retval= xmpir_mpq_set_str(out result, rop.val, __str, _base);
         if( __retval!=0 ) HandleError(__retval);
        __retval = xmpir_free(__str);
        if( __retval!=0 ) HandleError(__retval);
@@ -2168,27 +2168,27 @@ public static partial class mpir
     public static void mpq_swap(mpq_t rop1, mpq_t rop2)
     {
         int __retval;
-        __retval= xmpir_mpq_swap(rop1.value, rop2.value);
+        __retval= xmpir_mpq_swap(rop1.val, rop2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static double mpq_get_d(mpq_t op)
     {
         int __retval;
         double result;
-        __retval= xmpir_mpq_get_d(out result, op.value);
+        __retval= xmpir_mpq_get_d(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpq_set_d(mpq_t rop, double op)
     {
         int __retval;
-        __retval= xmpir_mpq_set_d(rop.value, op);
+        __retval= xmpir_mpq_set_d(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_set_f(mpq_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpq_set_f(rop.value, op.value);
+        __retval= xmpir_mpq_set_f(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static string mpq_get_string(uint _base, mpq_t op)
@@ -2196,7 +2196,7 @@ public static partial class mpir
         int __retval;
         string result;
         IntPtr __result;
-        __retval= xmpir_mpq_get_string(out __result, _base, op.value);
+        __retval= xmpir_mpq_get_string(out __result, _base, op.val);
         if( __retval!=0 ) HandleError(__retval);
        result = Marshal.PtrToStringAnsi(__result);
        __retval = xmpir_free(__result);
@@ -2206,62 +2206,62 @@ public static partial class mpir
     public static void mpq_add(mpq_t sum, mpq_t addend1, mpq_t addend2)
     {
         int __retval;
-        __retval= xmpir_mpq_add(sum.value, addend1.value, addend2.value);
+        __retval= xmpir_mpq_add(sum.val, addend1.val, addend2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_sub(mpq_t difference, mpq_t minuend, mpq_t subtrahend)
     {
         int __retval;
-        __retval= xmpir_mpq_sub(difference.value, minuend.value, subtrahend.value);
+        __retval= xmpir_mpq_sub(difference.val, minuend.val, subtrahend.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_mul(mpq_t product, mpq_t multiplier, mpq_t multiplicand)
     {
         int __retval;
-        __retval= xmpir_mpq_mul(product.value, multiplier.value, multiplicand.value);
+        __retval= xmpir_mpq_mul(product.val, multiplier.val, multiplicand.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_mul_2exp(mpq_t rop, mpq_t op1, ulong op2)
     {
         int __retval;
-        __retval= xmpir_mpq_mul_2exp(rop.value, op1.value, op2);
+        __retval= xmpir_mpq_mul_2exp(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_div(mpq_t quotient, mpq_t dividend, mpq_t divisor)
     {
         int __retval;
-        __retval= xmpir_mpq_div(quotient.value, dividend.value, divisor.value);
+        __retval= xmpir_mpq_div(quotient.val, dividend.val, divisor.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_div_2exp(mpq_t rop, mpq_t op1, ulong op2)
     {
         int __retval;
-        __retval= xmpir_mpq_div_2exp(rop.value, op1.value, op2);
+        __retval= xmpir_mpq_div_2exp(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_neg(mpq_t negated_operand, mpq_t operand)
     {
         int __retval;
-        __retval= xmpir_mpq_neg(negated_operand.value, operand.value);
+        __retval= xmpir_mpq_neg(negated_operand.val, operand.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_abs(mpq_t rop, mpq_t op)
     {
         int __retval;
-        __retval= xmpir_mpq_abs(rop.value, op.value);
+        __retval= xmpir_mpq_abs(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_inv(mpq_t inverted_number, mpq_t number)
     {
         int __retval;
-        __retval= xmpir_mpq_inv(inverted_number.value, number.value);
+        __retval= xmpir_mpq_inv(inverted_number.val, number.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpq_cmp(mpq_t op1, mpq_t op2)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpq_cmp(out result, op1.value, op2.value);
+        __retval= xmpir_mpq_cmp(out result, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2269,7 +2269,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpq_cmp_ui(out result, op1.value, num2, den2);
+        __retval= xmpir_mpq_cmp_ui(out result, op1.val, num2, den2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2277,7 +2277,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpq_cmp_si(out result, op1.value, num2, den2);
+        __retval= xmpir_mpq_cmp_si(out result, op1.val, num2, den2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2285,7 +2285,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpq_sgn(out result, op.value);
+        __retval= xmpir_mpq_sgn(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2293,82 +2293,82 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpq_equal(out result, op1.value, op2.value);
+        __retval= xmpir_mpq_equal(out result, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpq_get_num(mpz_t numerator, mpq_t rational)
     {
         int __retval;
-        __retval= xmpir_mpq_get_num(numerator.value, rational.value);
+        __retval= xmpir_mpq_get_num(numerator.val, rational.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_get_den(mpz_t denominator, mpq_t rational)
     {
         int __retval;
-        __retval= xmpir_mpq_get_den(denominator.value, rational.value);
+        __retval= xmpir_mpq_get_den(denominator.val, rational.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_set_num(mpq_t rational, mpz_t numerator)
     {
         int __retval;
-        __retval= xmpir_mpq_set_num(rational.value, numerator.value);
+        __retval= xmpir_mpq_set_num(rational.val, numerator.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpq_set_den(mpq_t rational, mpz_t denominator)
     {
         int __retval;
-        __retval= xmpir_mpq_set_den(rational.value, denominator.value);
+        __retval= xmpir_mpq_set_den(rational.val, denominator.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static ulong mpf_get_prec(mpf_t op)
     {
         int __retval;
         ulong result;
-        __retval= xmpir_mpf_get_prec(out result, op.value);
+        __retval= xmpir_mpf_get_prec(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpf_set_prec(mpf_t rop, ulong prec)
     {
         int __retval;
-        __retval= xmpir_mpf_set_prec(rop.value, prec);
+        __retval= xmpir_mpf_set_prec(rop.val, prec);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_set(mpf_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_set(rop.value, op.value);
+        __retval= xmpir_mpf_set(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_set_ui(mpf_t rop, uint op)
     {
         int __retval;
-        __retval= xmpir_mpf_set_ui(rop.value, op);
+        __retval= xmpir_mpf_set_ui(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_set_si(mpf_t rop, int op)
     {
         int __retval;
-        __retval= xmpir_mpf_set_si(rop.value, op);
+        __retval= xmpir_mpf_set_si(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_set_d(mpf_t rop, double op)
     {
         int __retval;
-        __retval= xmpir_mpf_set_d(rop.value, op);
+        __retval= xmpir_mpf_set_d(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_set_z(mpf_t rop, mpz_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_set_z(rop.value, op.value);
+        __retval= xmpir_mpf_set_z(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_set_q(mpf_t rop, mpq_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_set_q(rop.value, op.value);
+        __retval= xmpir_mpf_set_q(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpf_set_str(mpf_t rop, string str, uint _base)
@@ -2380,7 +2380,7 @@ public static partial class mpir
         __retval = xmpir_malloc(out __str, str.Length+1);
         if( __retval!=0 ) HandleError(__retval);
         Marshal.Copy(__ba_str, 0, __str, str.Length+1);
-        __retval= xmpir_mpf_set_str(out result, rop.value, __str, _base);
+        __retval= xmpir_mpf_set_str(out result, rop.val, __str, _base);
         if( __retval!=0 ) HandleError(__retval);
        __retval = xmpir_free(__str);
        if( __retval!=0 ) HandleError(__retval);
@@ -2389,14 +2389,14 @@ public static partial class mpir
     public static void mpf_swap(mpf_t rop1, mpf_t rop2)
     {
         int __retval;
-        __retval= xmpir_mpf_swap(rop1.value, rop2.value);
+        __retval= xmpir_mpf_swap(rop1.val, rop2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static double mpf_get_d(mpf_t op)
     {
         int __retval;
         double result;
-        __retval= xmpir_mpf_get_d(out result, op.value);
+        __retval= xmpir_mpf_get_d(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2404,7 +2404,7 @@ public static partial class mpir
     {
         int __retval;
         double result;
-        __retval= xmpir_mpf_get_d_2exp(out result, out expptr, op.value);
+        __retval= xmpir_mpf_get_d_2exp(out result, out expptr, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2412,7 +2412,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_get_si(out result, op.value);
+        __retval= xmpir_mpf_get_si(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2420,7 +2420,7 @@ public static partial class mpir
     {
         int __retval;
         uint result;
-        __retval= xmpir_mpf_get_ui(out result, op.value);
+        __retval= xmpir_mpf_get_ui(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2429,7 +2429,7 @@ public static partial class mpir
         int __retval;
         string result;
         IntPtr __result;
-        __retval= xmpir_mpf_get_string(out __result, out expptr, _base, n_digits, op.value);
+        __retval= xmpir_mpf_get_string(out __result, out expptr, _base, n_digits, op.val);
         if( __retval!=0 ) HandleError(__retval);
        result = Marshal.PtrToStringAnsi(__result);
        __retval = xmpir_free(__result);
@@ -2439,110 +2439,110 @@ public static partial class mpir
     public static void mpf_add(mpf_t rop, mpf_t op1, mpf_t op2)
     {
         int __retval;
-        __retval= xmpir_mpf_add(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpf_add(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_add_ui(mpf_t rop, mpf_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpf_add_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpf_add_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_sub(mpf_t rop, mpf_t op1, mpf_t op2)
     {
         int __retval;
-        __retval= xmpir_mpf_sub(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpf_sub(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_ui_sub(mpf_t rop, uint op1, mpf_t op2)
     {
         int __retval;
-        __retval= xmpir_mpf_ui_sub(rop.value, op1, op2.value);
+        __retval= xmpir_mpf_ui_sub(rop.val, op1, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_sub_ui(mpf_t rop, mpf_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpf_sub_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpf_sub_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_mul(mpf_t rop, mpf_t op1, mpf_t op2)
     {
         int __retval;
-        __retval= xmpir_mpf_mul(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpf_mul(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_mul_ui(mpf_t rop, mpf_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpf_mul_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpf_mul_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_div(mpf_t rop, mpf_t op1, mpf_t op2)
     {
         int __retval;
-        __retval= xmpir_mpf_div(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpf_div(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_ui_div(mpf_t rop, uint op1, mpf_t op2)
     {
         int __retval;
-        __retval= xmpir_mpf_ui_div(rop.value, op1, op2.value);
+        __retval= xmpir_mpf_ui_div(rop.val, op1, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_div_ui(mpf_t rop, mpf_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpf_div_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpf_div_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_sqrt(mpf_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_sqrt(rop.value, op.value);
+        __retval= xmpir_mpf_sqrt(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_sqrt_ui(mpf_t rop, uint op)
     {
         int __retval;
-        __retval= xmpir_mpf_sqrt_ui(rop.value, op);
+        __retval= xmpir_mpf_sqrt_ui(rop.val, op);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_pow_ui(mpf_t rop, mpf_t op1, uint op2)
     {
         int __retval;
-        __retval= xmpir_mpf_pow_ui(rop.value, op1.value, op2);
+        __retval= xmpir_mpf_pow_ui(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_neg(mpf_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_neg(rop.value, op.value);
+        __retval= xmpir_mpf_neg(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_abs(mpf_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_abs(rop.value, op.value);
+        __retval= xmpir_mpf_abs(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_mul_2exp(mpf_t rop, mpf_t op1, ulong op2)
     {
         int __retval;
-        __retval= xmpir_mpf_mul_2exp(rop.value, op1.value, op2);
+        __retval= xmpir_mpf_mul_2exp(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_div_2exp(mpf_t rop, mpf_t op1, ulong op2)
     {
         int __retval;
-        __retval= xmpir_mpf_div_2exp(rop.value, op1.value, op2);
+        __retval= xmpir_mpf_div_2exp(rop.val, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpf_cmp(mpf_t op1, mpf_t op2)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_cmp(out result, op1.value, op2.value);
+        __retval= xmpir_mpf_cmp(out result, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2550,7 +2550,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_cmp_d(out result, op1.value, op2);
+        __retval= xmpir_mpf_cmp_d(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2558,7 +2558,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_cmp_ui(out result, op1.value, op2);
+        __retval= xmpir_mpf_cmp_ui(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2566,7 +2566,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_cmp_si(out result, op1.value, op2);
+        __retval= xmpir_mpf_cmp_si(out result, op1.val, op2);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2574,47 +2574,47 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_eq(out result, op1.value, op2.value, op3);
+        __retval= xmpir_mpf_eq(out result, op1.val, op2.val, op3);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpf_reldiff(mpf_t rop, mpf_t op1, mpf_t op2)
     {
         int __retval;
-        __retval= xmpir_mpf_reldiff(rop.value, op1.value, op2.value);
+        __retval= xmpir_mpf_reldiff(rop.val, op1.val, op2.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpf_sgn(mpf_t op)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_sgn(out result, op.value);
+        __retval= xmpir_mpf_sgn(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpf_ceil(mpf_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_ceil(rop.value, op.value);
+        __retval= xmpir_mpf_ceil(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_floor(mpf_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_floor(rop.value, op.value);
+        __retval= xmpir_mpf_floor(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static void mpf_trunc(mpf_t rop, mpf_t op)
     {
         int __retval;
-        __retval= xmpir_mpf_trunc(rop.value, op.value);
+        __retval= xmpir_mpf_trunc(rop.val, op.val);
         if( __retval!=0 ) HandleError(__retval);
     }
     public static int mpf_integer_p(mpf_t op)
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_integer_p(out result, op.value);
+        __retval= xmpir_mpf_integer_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2622,7 +2622,7 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_fits_uint_p(out result, op.value);
+        __retval= xmpir_mpf_fits_uint_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
@@ -2630,14 +2630,14 @@ public static partial class mpir
     {
         int __retval;
         int result;
-        __retval= xmpir_mpf_fits_sint_p(out result, op.value);
+        __retval= xmpir_mpf_fits_sint_p(out result, op.val);
         if( __retval!=0 ) HandleError(__retval);
         return result;
     }
     public static void mpf_urandomb(mpf_t rop, gmp_randstate_t state, ulong nbits)
     {
         int __retval;
-        __retval= xmpir_mpf_urandomb(rop.value, state.val, nbits);
+        __retval= xmpir_mpf_urandomb(rop.val, state.val, nbits);
         if( __retval!=0 ) HandleError(__retval);
     }
 
