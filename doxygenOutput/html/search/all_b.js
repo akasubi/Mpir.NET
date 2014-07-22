@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['lcm',['Lcm',['../class_mpir_1_1_n_e_t_1_1mpz__t.html#abe4587c35b3c73f680d83104a04851dc',1,'Mpir.NET.mpz_t.Lcm(mpz_t x, mpz_t y)'],['../class_mpir_1_1_n_e_t_1_1mpz__t.html#a290e47ba9a65ff1cbc25b6eed3c200e2',1,'Mpir.NET.mpz_t.Lcm(mpz_t x, int y)'],['../class_mpir_1_1_n_e_t_1_1mpz__t.html#a72763a6d602945b6a1a6b7a7af8cf74b',1,'Mpir.NET.mpz_t.Lcm(int x, mpz_t y)'],['../class_mpir_1_1_n_e_t_1_1mpz__t.html#a1d4c24eb6472d992ceb10858eceb1365',1,'Mpir.NET.mpz_t.Lcm(mpz_t x, uint y)'],['../class_mpir_1_1_n_e_t_1_1mpz__t.html#addd994ad7baded5347a47404a3b3dce5',1,'Mpir.NET.mpz_t.Lcm(uint x, mpz_t y)']]],
-  ['legendresymbol',['LegendreSymbol',['../class_mpir_1_1_n_e_t_1_1mpz__t.html#afe6ccdaeac5705596d5e219ee0114213',1,'Mpir::NET::mpz_t']]],
-  ['loadlibrarysafe',['LoadLibrarySafe',['../class_mpir_1_1_n_e_t_1_1_mpir_dynamic_loader.html#a3bdc7594bc780b4f2aab841e5aec8b66',1,'Mpir::NET::MpirDynamicLoader']]],
-  ['lucas',['Lucas',['../class_mpir_1_1_n_e_t_1_1mpz__t.html#aeeede83bbf5fa4d1e04fbb191dd7635f',1,'Mpir.NET.mpz_t.Lucas(int n)'],['../class_mpir_1_1_n_e_t_1_1mpz__t.html#a81a3730bd7f205dbc72a3f36ddc66a54',1,'Mpir.NET.mpz_t.Lucas(uint n)'],['../class_mpir_1_1_n_e_t_1_1mpz__t.html#ae9a8f59c5fb119555ff996ca181cdfb3',1,'Mpir.NET.mpz_t.Lucas(int n, out mpz_t previous)'],['../class_mpir_1_1_n_e_t_1_1mpz__t.html#a8f278f8fb08fd28795986596e2a425f0',1,'Mpir.NET.mpz_t.Lucas(uint n, out mpz_t previous)']]]
-];
