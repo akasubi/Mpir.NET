@@ -2306,51 +2306,11 @@ namespace Mpir.NET
 
         public static implicit operator mpz_t(int value)
         {
-            if(value <= 10 && value >= -10)
-            {
-                switch(value)
-                {
-                    case 0:
-                        return mpz_t.Zero;
-                    case 1:
-                        return mpz_t.One;
-                    case 2:
-                        return mpz_t.Two;
-                    case 3:
-                        return mpz_t.Three;
-                    case 10:
-                        return mpz_t.Ten;
-                    case -1:
-                        return mpz_t.NegativeOne;
-                    case -2:
-                        return mpz_t.NegativeTwo;
-                    case -3:
-                        return mpz_t.Three;
-                    case -10:
-                        return mpz_t.NegativeTen;
-                }
-            }
-
             return new mpz_t(value);
         }
 
         public static implicit operator mpz_t(uint value)
         {
-            if(value <= 10)
-            {
-                switch(value)
-                {
-                    case 0:
-                        return mpz_t.Zero;
-                    case 1:
-                        return mpz_t.One;
-                    case 2:
-                        return mpz_t.Two;
-                    case 10:
-                        return mpz_t.Ten;
-                }
-            }
-
             return new mpz_t(value);
         }
 

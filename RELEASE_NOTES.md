@@ -12,3 +12,6 @@
 
 #### 0.2.1 - June 2014
 * Added NuGet install script.
+
+#### 0.2.2 - July 2014
+* Fixed implicit cast bug.
