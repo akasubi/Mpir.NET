@@ -7,7 +7,7 @@ using System.Numerics;
 
 namespace Mpir.NET
 {
-    public class mpz_t : IDisposable, ICloneable, IConvertible
+    public class mpz_t : IDisposable, ICloneable, IConvertible, IComparable
     {
         #region Data
         private const uint s_defaultStringBase = 10u;
@@ -2294,6 +2294,11 @@ namespace Mpir.NET
         //{
         //    return -y.CompareAbsTo(x);
         //}
+
+        int IComparable.CompareTo(object obj)
+        {
+            return Compare(this, obj);
+        }
 
         #endregion
 
