@@ -15,3 +15,6 @@
 
 #### 0.2.2 - July 2014
 * Fixed implicit cast bug.
+
+#### 0.2.3 - November 2014
+* Implemented IComparable for mpz_t.
