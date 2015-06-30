@@ -8,7 +8,7 @@ Mpir.NET
 Mpir.NET lets you use the [MPIR library](http://mpir.org), which is a GMP fork for Windows,
 from .NET languages. 
 
-The current version incorporates 32- and 64-bit builds of MPIR 2.6.0.
+The current version incorporates 32- and 64-bit builds of MPIR 2.7.0.
 
 <div class="row">
   <div class="span1"></div>
@@ -64,10 +64,10 @@ mpir.mpz_addmul(c, a, b);
 Supported CPUs
 --------------
 
-Mpir.NET includes an MPIR 32-bit build for Pentium (p0 target in MPIR), and a 
+Mpir.NET includes an MPIR 32-bit build for Pentium 3 (p3 target in MPIR), and a 
 64-bit build for K8. In other words, Mpir.NET runs on Pentiums and later x86 32-bit
-CPUs, and all x64 64-bit CPUs. It will not run on pre-Pentium antiques or weird
-stuff like Itaniums.
+CPUs, and all x64 64-bit CPUs. It will not run on pre-Pentium 3 PCs (which would be 
+from 1999 or earlier) or weird stuff like Itaniums.
 
 Origins
 -------

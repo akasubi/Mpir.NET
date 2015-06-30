@@ -18,3 +18,6 @@
 
 #### 0.2.3 - November 2014
 * Implemented IComparable for mpz_t.
+
+#### 0.3.0 - June 2015
+* Upgraded to MPIR 2.7.0.

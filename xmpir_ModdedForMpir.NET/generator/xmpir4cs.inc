@@ -40,6 +40,7 @@ binary import/export functions etc.
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security;
 
 // Disable warning about missing XML comments.
 #pragma warning disable 1591
@@ -105,6 +106,7 @@ EOS;
         if( $definition['entitytype']=='function' )
         {
             $s_ptrs .= "    private static IntPtr __ptr__xmpir_$definition[name] = GetProcAddressSafe(hxmpir, \"xmpir_$definition[name]\");\n";
+            $s_delegate_defs .= "    [SuppressUnmanagedCodeSecurity]\n";
             $s_delegate_defs .= "    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]\n";
             $s_delegate_defs .= "    ".CSharpMPIR_GenerateDelegate($definition['name'], $definition['type'], $definition['params']).";\n";
             $s_delegates .= "    private static __xmpir_$definition[name] xmpir_$definition[name] = (__xmpir_$definition[name])Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_$definition[name], typeof(__xmpir_$definition[name]));\n";
@@ -232,6 +234,8 @@ function CSharpMPIR_GenerateFunction($name, $type, $params)
         case 'double':
         case 'mp_bitcnt_t':
         case 'mp_exp_t':
+        case 'mpir_si':
+        case 'mpir_ui':
             $s = "$p[name]";
             break;
         case 'str_pointer':
@@ -329,6 +333,11 @@ function CSharpMPIR_CSharpRawType($type)
             return "ulong";
         case 'mp_exp_t':
             return "long";
+        case 'mpir_si':
+            return "long";
+        case 'mpir_ui':
+            return "ulong";
+            
         case 'str_pointer':
         case 'mpz_handle':
         case 'mpq_handle':
@@ -379,6 +388,11 @@ function CSharpMPIR_CSharpType($type)
             return "mpfr_t";
         case 'gmp_randstate_handle':
             return "gmp_randstate_t";
+
+        case 'mpir_si':
+            return "long";
+        case 'mpir_ui':
+            return "ulong";
 
         // intptr added by JR.
         case 'mpz_intptr':

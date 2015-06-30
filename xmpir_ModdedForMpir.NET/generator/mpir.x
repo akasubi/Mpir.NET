@@ -203,7 +203,7 @@ function void mpf_set_q (in mpf_handle rop, in mpq_handle op);
 function sint32 mpf_set_str (in mpf_handle rop, in str_pointer str, in uint32 base);
 function void mpf_swap (in mpf_handle rop1, in mpf_handle rop2);
 function double mpf_get_d (in mpf_handle op);
-function double mpf_get_d_2exp (out mp_exp_t expptr, in mpf_handle op);
+function double mpf_get_d_2exp (out mpir_si expptr, in mpf_handle op);
 function sint32 mpf_get_si (in mpf_handle op);
 function uint32 mpf_get_ui (in mpf_handle op);
 function str_pointer mpf_get_string(out mp_exp_t expptr, in uint32 base, in uint32 n_digits, in mpf_handle op);

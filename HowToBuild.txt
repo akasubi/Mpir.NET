@@ -14,24 +14,23 @@ Building MPIR
 
 MPIR can probably be built with the current Visual studio version (VS2013 at the time of this writing), but I've used VS2010 because that's what the MPIR team used.
 
-1) Download MPIR from mpir.org.
+1) Download MPIR from mpir.org and unpack it to a folder.
 2) Get vsyasm from http://www.tortall.net/projects/yasm/
-3) Copy the vsyasm files to the VS2010 folder, e.g. C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin
-4) Install Python
-5) Run \build.vc10\mpir_config.py and add the p0 CPU target.
-6) Start Visual studio 2010 and build lib_mpir_p0. The resulting DLL ends up in lib\Win32\Release, together with a bunch of header files (it also ends up in build.vc10, but without the header files).
-7) Build lib_mpir_k8 from within Visual Studio 2010. The resulting DLL ends up in lib\x64\Release, together with a bunch of header files.
+3) Copy the vsyasm files to the VS2013 folder, e.g. C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin
+4) Open <your MPIR folder>\build.vc12\mpir.sln in Visual studio 2013.
+5) Select "Release" solution configuration and build lib_mpir_p3. The resulting DLL ends up in <your MPIR folder>\lib\Win32\Release, together with a bunch of header files (it also ends up in <your MPIR folder>\build.vc12, but without the header files).
+6) Build lib_mpir_k8 from within Visual Studio 2013. The resulting DLL ends up in <your MPIR folder>\lib\x64\Release, together with a bunch of header files.
 
-8) Copy everything in lib\Win32\Release to Mpir.NET\xmpir_ModdedForUxMpir\mpir-precompiled\win32.
-9) Copy everything in lib\x64\Release to Mpir.NET\xmpir_ModdedForUxMpir\mpir-precompiled\win64.
+7) Copy everything in <your MPIR folder>\lib\Win32\Release to Mpir.NET\xmpir_ModdedForMpir.NET\mpir-precompiled\win32.
+8) Copy everything in <your MPIR folder>\lib\x64\Release to Mpir.NET\xmpir_ModdedForMpir.NET\mpir-precompiled\win64.
 
 
 Building the modified X-MPIR
 ----------------------------
 
 1) Install PHP (a portable version will do).
-2) Edit the paths in gen-and-build-win.bat to match your system.
-3) Open a command prompt in xmpir_ModdedForUxMpir and run gen-and-build-win.bat. The build result gets copied to the appropriate Mpir.NET folder.
+2) Edit the paths in xmpir_ModdedForMpir.NET\gen-and-build-win.bat to match your system.
+3) Open a command prompt in xmpir_ModdedForMpir.NET and run gen-and-build-win.bat. The build result gets copied to the appropriate Mpir.NET folder.
 
 
 Building Mpir.NET

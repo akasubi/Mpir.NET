@@ -1168,11 +1168,9 @@ DLLEXPORT int xmpir_mpf_get_d(double* result, mpf_wrapper* op)
     *result = mpf_get_d(op->val);
     return XMPIR_OK;
 }
-DLLEXPORT int xmpir_mpf_get_d_2exp(double* result, signed long long* __expptr, mpf_wrapper* op)
+DLLEXPORT int xmpir_mpf_get_d_2exp(double* result, mpir_si* expptr, mpf_wrapper* op)
 {
-    mp_exp_t expptr;
-    *result = mpf_get_d_2exp(&expptr, op->val);
-    *__expptr = expptr;
+    *result = mpf_get_d_2exp(expptr, op->val);
     return XMPIR_OK;
 }
 DLLEXPORT int xmpir_mpf_get_si(signed int* result, mpf_wrapper* op)

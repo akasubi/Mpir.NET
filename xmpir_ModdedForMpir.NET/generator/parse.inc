@@ -81,7 +81,7 @@ function XGenParseParams($str)
     foreach($arr as $paramstr)
     {
         $paramstr = XGenStripSpaces($paramstr);
-        if( preg_match("/^(in|out|ref|inout) (uint32|sint32|double|str_pointer|mp_bitcnt_t|mp_exp_t|gmp_randstate_handle|mpz_handle|mpq_handle|mpf_handle|mpfr_handle) (\w+)$/", $paramstr, $matches)!=1 )
+        if( preg_match("/^(in|out|ref|inout) (uint32|sint32|double|str_pointer|mp_bitcnt_t|mp_exp_t|gmp_randstate_handle|mpz_handle|mpq_handle|mpf_handle|mpfr_handle|mpir_si|mpir_ui) (\w+)$/", $paramstr, $matches)!=1 )
             exit("\n'$paramstr' is not correct X-gen parameter\n");
         $param = array();
         $param['passingtype'] = $matches[1];

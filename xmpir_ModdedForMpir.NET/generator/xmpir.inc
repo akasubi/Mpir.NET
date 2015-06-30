@@ -302,6 +302,10 @@ function XMPIR_CoreType($type)
             return "mpfr_wrapper*";
         case 'gmp_randstate_handle':
             return "gmp_randstate_wrapper*";
+        case 'mpir_si':
+            return "mpir_si";
+        case 'mpir_ui':
+            return "mpir_ui";            
     }
     exit("\nXMPIR_CoreType: No such type: '$type'\n");
 }

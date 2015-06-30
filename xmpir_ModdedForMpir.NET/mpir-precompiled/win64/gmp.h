@@ -1,7 +1,8 @@
 /* generated from gmp-h.in by gen_mpir_h.bat */
 /* Definitions for GNU multiple precision functions.   -*- mode: c -*-
 Copyright 1991, 1993, 1994, 1995, 1996, 1997, 1999, 2000, 2001, 2002, 2003,
-2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, 
+Inc.
 Copyright 2008 William Hart, Gonzalo Tornaria
 This file is part of the MPIR Library.
 The MPIR Library is free software; you can redistribute it and/or modify
@@ -15,7 +16,12 @@ License for more details.
 You should have received a copy of the GNU Lesser General Public License
 along with the GNU MP Library.  If not, see http://www.gnu.org/licenses/.  */
 #ifndef __GMP_H__
+#ifdef __SUNPRO_CC    /* See: http://trac.sagemath.org/sage_trac/ticket/7849 */
+#include <stddef.h>   /* This is Bill Hart's fix, but I've applied it only */
+#include <stdarg.h>   /* on Sun Studio */
+#endif 
 #if defined (__cplusplus)
+#include <cstddef>     /* for size_t */
 #include <iosfwd>   /* for std::istream, std::ostream, std::string */
 #include <cstdio>
 #endif
@@ -40,9 +46,7 @@ along with the GNU MP Library.  If not, see http://www.gnu.org/licenses/.  */
 #ifndef __GNU_MP__
 #define __GNU_MP__ 4
 #define __need_size_t  /* tell gcc stddef.h we only want size_t */
-#if defined (__cplusplus)
-#include <cstddef>     /* for size_t */
-#else
+#if ! defined (__cplusplus)
 #include <stddef.h>    /* for size_t */
 #endif
 #undef __need_size_t
@@ -138,6 +142,15 @@ along with the GNU MP Library.  If not, see http://www.gnu.org/licenses/.  */
 #ifdef __IBMC__
 #define __GMP_DECLSPEC_EXPORT  _Export
 #define __GMP_DECLSPEC_IMPORT  _Import
+#endif
+#if defined( _MSC_VER )
+#  if defined( MSC_BUILD_DLL )
+#    define __GMP_LIBGMP_DLL   1
+#    define __GMP_WITHIN_GMP   1
+#    define __GMP_WITHIN_GMPXX 1
+#  elif defined( MSC_USE_DLL )
+#    define __GMP_LIBGMP_DLL   1
+#  endif
 #endif
 #if __GMP_LIBGMP_DLL
 #if __GMP_WITHIN_GMP
@@ -639,6 +652,12 @@ __GMP_DECLSPEC void mpz_dump __GMP_PROTO ((mpz_srcptr));
 __GMP_DECLSPEC void *mpz_export __GMP_PROTO ((void *, size_t *, int, size_t, int, size_t, mpz_srcptr));
 #define mpz_fac_ui __gmpz_fac_ui
 __GMP_DECLSPEC void mpz_fac_ui __GMP_PROTO ((mpz_ptr, mpir_ui));
+#define mpz_2fac_ui __gmpz_2fac_ui
+__GMP_DECLSPEC void mpz_2fac_ui __GMP_PROTO ((mpz_ptr, mpir_ui));
+#define mpz_mfac_uiui __gmpz_mfac_uiui
+__GMP_DECLSPEC void mpz_mfac_uiui __GMP_PROTO ((mpz_ptr, mpir_ui, mpir_ui));
+#define mpz_primorial_ui __gmpz_primorial_ui
+__GMP_DECLSPEC void mpz_primorial_ui __GMP_PROTO ((mpz_ptr, mpir_ui));
 #define mpz_fdiv_q __gmpz_fdiv_q
 __GMP_DECLSPEC void mpz_fdiv_q __GMP_PROTO ((mpz_ptr, mpz_srcptr, mpz_srcptr));
 #define mpz_fdiv_q_2exp __gmpz_fdiv_q_2exp
@@ -784,8 +803,8 @@ __GMP_DECLSPEC void mpz_neg __GMP_PROTO ((mpz_ptr, mpz_srcptr));
 #endif
 #define mpz_nextprime __gmpz_nextprime
 __GMP_DECLSPEC void mpz_nextprime __GMP_PROTO ((mpz_ptr, mpz_srcptr));
-#define mpz_next_likely_prime __gmpz_next_likely_prime
-__GMP_DECLSPEC void mpz_next_likely_prime __GMP_PROTO ((mpz_ptr, mpz_srcptr, gmp_randstate_t));
+#define mpz_next_prime_candidate __gmpz_next_prime_candidate
+__GMP_DECLSPEC void mpz_next_prime_candidate __GMP_PROTO ((mpz_ptr, mpz_srcptr, gmp_randstate_t));
 #define mpz_out_raw __gmpz_out_raw
 #ifdef _GMP_H_HAVE_FILE
 __GMP_DECLSPEC size_t mpz_out_raw __GMP_PROTO ((FILE *, mpz_srcptr));
@@ -908,7 +927,8 @@ __GMP_DECLSPEC void mpz_urandomm __GMP_PROTO ((mpz_ptr, gmp_randstate_t, mpz_src
 #define mpz_eor __gmpz_xor
 __GMP_DECLSPEC void mpz_xor __GMP_PROTO ((mpz_ptr, mpz_srcptr, mpz_srcptr));
 /****** Integer (i.e. Z) routines for intmaax_t/uintmax_t types ******/
-#if defined( _STDINT_H ) || defined ( _STDINT_H_ ) || defined ( _STDINT )
+/* if stdint.h is available -- n.b: we do NOT include stdint.h ourselves */
+#if defined(INTMAX_MAX)
 #define __GMP_BITS_PER_UINTMAX  (8*sizeof(uintmax_t))
 #define mpz_get_ux __gmpz_get_ux
 __GMP_DECLSPEC uintmax_t mpz_get_ux __GMP_PROTO ((mpz_srcptr));
@@ -1193,10 +1213,7 @@ __GMP_DECLSPEC mp_limb_t mpn_divrem_2 __GMP_PROTO ((mp_ptr, mp_size_t, mp_ptr, m
 __GMP_DECLSPEC void mpn_invert __GMP_PROTO ((mp_ptr xp, mp_srcptr ap, mp_size_t n));
 #define mpn_sb_divappr_q __MPN(sb_divappr_q)
 __GMP_DECLSPEC mp_limb_t mpn_sb_divappr_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-		  mp_srcptr dp, mp_size_t dn, mp_limb_t dip)); 
-#define mpn_dc_divappr_q_n __MPN(dc_divappr_q_n)
-__GMP_DECLSPEC mp_limb_t mpn_dc_divappr_q_n __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_srcptr dp, mp_size_t n, 
-		         mp_limb_t dip, mp_ptr tp));
+		  mp_srcptr dp, mp_size_t dn, mp_limb_t dip, mp_limb_t d1ip)); 
 #define mpn_dc_bdiv_q_n __MPN(dc_bdiv_q_n)
 __GMP_DECLSPEC void mpn_dc_bdiv_q_n __GMP_PROTO ((mp_ptr qp, mp_ptr wp, mp_ptr np, mp_srcptr dp, mp_size_t n,
                  mp_limb_t dinv, mp_ptr scratch));
@@ -1204,11 +1221,11 @@ __GMP_DECLSPEC void mpn_dc_bdiv_q_n __GMP_PROTO ((mp_ptr qp, mp_ptr wp, mp_ptr n
 __GMP_DECLSPEC mp_limb_t mpn_inv_divappr_q_n __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_srcptr dp, mp_size_t n,
                          mp_srcptr dip));
 #define mpn_dc_divappr_q __MPN(dc_divappr_q)
-__GMP_DECLSPEC mp_limb_t mpn_dc_divappr_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn, mp_srcptr dp, mp_size_t n,
-                 mp_limb_t dinv));
+__GMP_DECLSPEC mp_limb_t mpn_dc_divappr_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn, mp_srcptr dp, 
+                 mp_size_t n, mp_limb_t dinv, mp_limb_t d1inv));
 #define mpn_dc_div_q __MPN(dc_div_q)
 __GMP_DECLSPEC mp_limb_t mpn_dc_div_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
 #define mpn_inv_divappr_q __MPN(inv_divappr_q)
 __GMP_DECLSPEC mp_limb_t mpn_inv_divappr_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn, mp_srcptr dp, mp_size_t n,
                  mp_srcptr dinv));
@@ -1223,13 +1240,13 @@ __GMP_DECLSPEC mp_limb_t mpn_inv_div_qr_n __GMP_PROTO ((mp_ptr qp, mp_ptr np,
          mp_srcptr dp, mp_size_t dn, mp_srcptr dinv));
 #define mpn_dc_div_qr __MPN(dc_div_qr)
 __GMP_DECLSPEC mp_limb_t mpn_dc_div_qr __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
 #define mpn_dc_div_qr_n __MPN(dc_div_qr_n)
 __GMP_DECLSPEC mp_limb_t mpn_dc_div_qr_n __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_srcptr dp, mp_size_t n,
-         mp_limb_t dinv, mp_ptr tp));
+         mp_limb_t dinv, mp_limb_t d1inv, mp_ptr tp));
 #define mpn_sb_div_q __MPN(sb_div_q)
 __GMP_DECLSPEC mp_limb_t mpn_sb_div_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
 #define mpn_sb_bdiv_q __MPN(sb_bdiv_q)
 __GMP_DECLSPEC void mpn_sb_bdiv_q __GMP_PROTO ((mp_ptr qp, mp_ptr wp, mp_ptr np, mp_size_t nn,
          mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
@@ -1244,7 +1261,7 @@ __GMP_DECLSPEC mp_limb_t mpn_dc_bdiv_qr_n __GMP_PROTO ((mp_ptr qp, mp_ptr np,
          mp_srcptr dp, mp_size_t n, mp_limb_t dinv, mp_ptr tp));
 #define mpn_sb_div_qr __MPN(sb_div_qr)
 __GMP_DECLSPEC mp_limb_t mpn_sb_div_qr __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
 #define mpn_sb_bdiv_qr __MPN(sb_bdiv_qr)
 __GMP_DECLSPEC mp_limb_t mpn_sb_bdiv_qr __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
          mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
@@ -1358,6 +1375,8 @@ __GMP_DECLSPEC mp_limb_t mpn_sumdiff_n __GMP_PROTO ((mp_ptr, mp_ptr, mp_srcptr, 
 /**************** MPN API for FFT ****************/
 #define mpn_mul_fft_main __MPN(mul_fft_main)
 __GMP_DECLSPEC void mpn_mul_fft_main __GMP_PROTO ((mp_ptr r1, mp_srcptr i1, mp_size_t n1, mp_srcptr i2, mp_size_t n2));
+#define mpn_mul_fft __MPN(mul_fft)
+__GMP_DECLSPEC int mpn_mul_fft __GMP_PROTO((mp_ptr rp, mp_size_t rn, mp_srcptr ap, mp_size_t an, mp_srcptr bp, mp_size_t bn, int k));
 /**************** mpz inlines ****************/
 /* The following are provided as inlines where possible, but always exist as
    library functions too, for binary compatibility.
@@ -1888,15 +1907,15 @@ enum
 };
 /* Major version number is the value of __GNU_MP__ too, above and in mp.h. */
 #define __GNU_MP_VERSION 5 
-#define __GNU_MP_VERSION_MINOR 0 
-#define __GNU_MP_VERSION_PATCHLEVEL 2
-#define GMP_VERSION "5.0.2"
+#define __GNU_MP_VERSION_MINOR 1 
+#define __GNU_MP_VERSION_PATCHLEVEL 3
+#define GMP_VERSION "5.1.3"
 #define __GNU_MP_RELEASE (__GNU_MP_VERSION * 10000 + __GNU_MP_VERSION_MINOR * 100 + __GNU_MP_VERSION_PATCHLEVEL)
 #define __MPIR_VERSION 2
-#define __MPIR_VERSION_MINOR 6 
+#define __MPIR_VERSION_MINOR 7 
 #define __MPIR_VERSION_PATCHLEVEL 0
 #if defined( _MSC_VER )
-#define _MSC_MPIR_VERSION "2.6.0"
+#define _MSC_MPIR_VERSION "2.7.0"
 #endif
 #define __MPIR_RELEASE (__MPIR_VERSION * 10000 + __MPIR_VERSION_MINOR * 100 + __MPIR_VERSION_PATCHLEVEL)
 /* These are for programs like MPFR to use the same CC and CFLAGS as MPIR */
