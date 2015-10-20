@@ -48,9 +48,24 @@ namespace Mpir.NET
             return hxmpir;
         }
 
-        //
-        // Our wrappers for dynamic loading functions
-        //
+        #region Static mpz_t functions.
+
+        /// Returns the largest number of a and b.
+        public static mpz_t Max(mpz_t a, mpz_t b)
+        {
+            return a > b ? a : b;
+        }
+
+        /// Returns the smallest number of a and b.
+        public static mpz_t Min(mpz_t a, mpz_t b)
+        {
+            return a < b ? a : b;
+        }
+
+        #endregion
+
+        #region Wrappers for dynamic loading functions
+
         public static string GetOSString()
         {
             if( System.IO.Path.DirectorySeparatorChar=='/' )
@@ -127,6 +142,8 @@ namespace Mpir.NET
             return hResult;
         }
 
+        #endregion
+
         //
         // memory management functions
         //
@@ -139,9 +156,8 @@ namespace Mpir.NET
         private static __xmpir_malloc xmpir_malloc = (__xmpir_malloc)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_malloc, typeof(__xmpir_malloc));
         private static __xmpir_free xmpir_free = (__xmpir_free)Marshal.GetDelegateForFunctionPointer(__ptr__xmpir_free, typeof(__xmpir_free));
 
-        //
-        // import and export functions
-        //
+        #region Import and export functions
+
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         private unsafe delegate void __Mpir_internal_mpz_import(IntPtr rop, uint count, int order, uint size, int endian, uint nails, void* op);
         private static IntPtr __ptr__Mpir_internal_mpz_import = GetProcAddressSafe(hxmpir, "Mpir_internal_mpz_import");
@@ -173,5 +189,6 @@ namespace Mpir.NET
             }
             return destBuf;
         }
-    }    
+        #endregion
+    }
 }

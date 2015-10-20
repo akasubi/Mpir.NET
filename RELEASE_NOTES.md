@@ -21,3 +21,6 @@
 
 #### 0.3.0 - June 2015
 * Upgraded to MPIR 2.7.0.
+
+#### 0.3.1 - October 2015
+* Added mpz_t.Abs, mpir.Min and mpir.Max.

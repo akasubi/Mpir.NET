@@ -743,7 +743,15 @@ namespace Mpir.NET
 
         #endregion
 
-        #region Basic Arithmatic
+        #region Basic Arithmetic
+
+        /// Returns a new mpz_t which is the absolute value of this value.
+        public mpz_t Abs()
+        {
+            mpz_t result = new mpz_t();
+            mpir.mpz_abs(result, this);
+            return result;
+        }
 
         public mpz_t Negate()
         {
