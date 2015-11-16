@@ -181,3 +181,4 @@ xmpir_ModdedForMpir.NET/mpir-precompiled/win32/mpir.lib
 xmpir_ModdedForMpir.NET/mpir-precompiled/win64/mpir.lib
 xmpir_ModdedForMpir.NET/wrapper/xmpir32.dll
 xmpir_ModdedForMpir.NET/wrapper/xmpir64.dll
+*.dll
