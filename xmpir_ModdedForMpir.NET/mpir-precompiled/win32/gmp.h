@@ -1,4 +1,4 @@
-/* generated from gmp-h.in by gen_mpir_h.bat */
+/* generated from gmp-h.in by gen_mpir_h.bat */ 
 /* Definitions for GNU multiple precision functions.   -*- mode: c -*-
 Copyright 1991, 1993, 1994, 1995, 1996, 1997, 1999, 2000, 2001, 2002, 2003,
 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, 
@@ -1213,7 +1213,7 @@ __GMP_DECLSPEC mp_limb_t mpn_divrem_2 __GMP_PROTO ((mp_ptr, mp_size_t, mp_ptr, m
 __GMP_DECLSPEC void mpn_invert __GMP_PROTO ((mp_ptr xp, mp_srcptr ap, mp_size_t n));
 #define mpn_sb_divappr_q __MPN(sb_divappr_q)
 __GMP_DECLSPEC mp_limb_t mpn_sb_divappr_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-		  mp_srcptr dp, mp_size_t dn, mp_limb_t dip, mp_limb_t d1ip)); 
+		  mp_srcptr dp, mp_size_t dn, mp_limb_t dip)); 
 #define mpn_dc_bdiv_q_n __MPN(dc_bdiv_q_n)
 __GMP_DECLSPEC void mpn_dc_bdiv_q_n __GMP_PROTO ((mp_ptr qp, mp_ptr wp, mp_ptr np, mp_srcptr dp, mp_size_t n,
                  mp_limb_t dinv, mp_ptr scratch));
@@ -1222,10 +1222,10 @@ __GMP_DECLSPEC mp_limb_t mpn_inv_divappr_q_n __GMP_PROTO ((mp_ptr qp, mp_ptr np,
                          mp_srcptr dip));
 #define mpn_dc_divappr_q __MPN(dc_divappr_q)
 __GMP_DECLSPEC mp_limb_t mpn_dc_divappr_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn, mp_srcptr dp, 
-                 mp_size_t n, mp_limb_t dinv, mp_limb_t d1inv));
+                 mp_size_t n, mp_limb_t dinv));
 #define mpn_dc_div_q __MPN(dc_div_q)
 __GMP_DECLSPEC mp_limb_t mpn_dc_div_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
 #define mpn_inv_divappr_q __MPN(inv_divappr_q)
 __GMP_DECLSPEC mp_limb_t mpn_inv_divappr_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn, mp_srcptr dp, mp_size_t n,
                  mp_srcptr dinv));
@@ -1240,13 +1240,13 @@ __GMP_DECLSPEC mp_limb_t mpn_inv_div_qr_n __GMP_PROTO ((mp_ptr qp, mp_ptr np,
          mp_srcptr dp, mp_size_t dn, mp_srcptr dinv));
 #define mpn_dc_div_qr __MPN(dc_div_qr)
 __GMP_DECLSPEC mp_limb_t mpn_dc_div_qr __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
 #define mpn_dc_div_qr_n __MPN(dc_div_qr_n)
 __GMP_DECLSPEC mp_limb_t mpn_dc_div_qr_n __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_srcptr dp, mp_size_t n,
-         mp_limb_t dinv, mp_limb_t d1inv, mp_ptr tp));
+         mp_limb_t dinv, mp_ptr tp));
 #define mpn_sb_div_q __MPN(sb_div_q)
 __GMP_DECLSPEC mp_limb_t mpn_sb_div_q __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
 #define mpn_sb_bdiv_q __MPN(sb_bdiv_q)
 __GMP_DECLSPEC void mpn_sb_bdiv_q __GMP_PROTO ((mp_ptr qp, mp_ptr wp, mp_ptr np, mp_size_t nn,
          mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
@@ -1261,7 +1261,7 @@ __GMP_DECLSPEC mp_limb_t mpn_dc_bdiv_qr_n __GMP_PROTO ((mp_ptr qp, mp_ptr np,
          mp_srcptr dp, mp_size_t n, mp_limb_t dinv, mp_ptr tp));
 #define mpn_sb_div_qr __MPN(sb_div_qr)
 __GMP_DECLSPEC mp_limb_t mpn_sb_div_qr __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
-         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv, mp_limb_t d1inv));
+         mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
 #define mpn_sb_bdiv_qr __MPN(sb_bdiv_qr)
 __GMP_DECLSPEC mp_limb_t mpn_sb_bdiv_qr __GMP_PROTO ((mp_ptr qp, mp_ptr np, mp_size_t nn,
          mp_srcptr dp, mp_size_t dn, mp_limb_t dinv));
@@ -1913,9 +1913,9 @@ enum
 #define __GNU_MP_RELEASE (__GNU_MP_VERSION * 10000 + __GNU_MP_VERSION_MINOR * 100 + __GNU_MP_VERSION_PATCHLEVEL)
 #define __MPIR_VERSION 2
 #define __MPIR_VERSION_MINOR 7 
-#define __MPIR_VERSION_PATCHLEVEL 0
+#define __MPIR_VERSION_PATCHLEVEL 1 
 #if defined( _MSC_VER )
-#define _MSC_MPIR_VERSION "2.7.0"
+#define _MSC_MPIR_VERSION "2.7.1"
 #endif
 #define __MPIR_RELEASE (__MPIR_VERSION * 10000 + __MPIR_VERSION_MINOR * 100 + __MPIR_VERSION_PATCHLEVEL)
 /* These are for programs like MPFR to use the same CC and CFLAGS as MPIR */

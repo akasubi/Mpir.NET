@@ -16,10 +16,10 @@ MPIR can probably be built with the current Visual studio version (VS2013 at the
 
 1) Download MPIR from mpir.org and unpack it to a folder.
 2) Get vsyasm from http://www.tortall.net/projects/yasm/
-3) Copy the vsyasm files to the VS2013 folder, e.g. C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin
-4) Open <your MPIR folder>\build.vc12\mpir.sln in Visual studio 2013.
-5) Select "Release" solution configuration and build lib_mpir_p3. The resulting DLL ends up in <your MPIR folder>\lib\Win32\Release, together with a bunch of header files (it also ends up in <your MPIR folder>\build.vc12, but without the header files).
-6) Build lib_mpir_k8 from within Visual Studio 2013. The resulting DLL ends up in <your MPIR folder>\lib\x64\Release, together with a bunch of header files.
+3) Copy the vsyasm files to the VS2015 folder, e.g. C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin
+4) Open <your MPIR folder>\build.vc14\mpir.sln in Visual studio 2015.
+5) Select "Release" solution configuration and build lib_mpir_p3. The resulting DLL ends up in <your MPIR folder>\lib\Win32\Release, together with a bunch of header files (it also ends up in <your MPIR folder>\build.vc14, but without the header files).
+6) Build lib_mpir_k8 from within Visual Studio 2015. The resulting DLL ends up in <your MPIR folder>\lib\x64\Release, together with a bunch of header files.
 
 7) Copy everything in <your MPIR folder>\lib\Win32\Release to Mpir.NET\xmpir_ModdedForMpir.NET\mpir-precompiled\win32.
 8) Copy everything in <your MPIR folder>\lib\x64\Release to Mpir.NET\xmpir_ModdedForMpir.NET\mpir-precompiled\win64.
@@ -36,7 +36,7 @@ Building the modified X-MPIR
 Building Mpir.NET
 -----------------
 
-Mpir.NET can be built with Visual Studio 2013, or by running build.cmd. 
+Mpir.NET can be built with Visual Studio 2015, or by running build.cmd. 
 
 
 Generating docs
