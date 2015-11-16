@@ -8,7 +8,7 @@ Mpir.NET
 Mpir.NET lets you use the [MPIR library](http://mpir.org), which is a GMP fork for Windows,
 from .NET languages. 
 
-The current version incorporates 32- and 64-bit builds of MPIR 2.7.0.
+The current version incorporates 32- and 64-bit builds of MPIR 2.7.1.
 
 <div class="row">
   <div class="span1"></div>
