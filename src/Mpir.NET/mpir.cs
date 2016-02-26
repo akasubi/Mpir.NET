@@ -80,9 +80,9 @@ namespace Mpir.NET
             // * GetEntryAssembly().CodeBase property (if previous attempt failed)
             //
             string libpath = "";
-            if( Assembly.GetExecutingAssembly().CodeBase!="" )
+            if( Assembly.GetExecutingAssembly().EscapedCodeBase!="" )
             {
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                string codeBase = Assembly.GetExecutingAssembly().EscapedCodeBase;
                 UriBuilder uri = new UriBuilder(codeBase);
                 string path = Uri.UnescapeDataString(uri.Path);
                 libpath = System.IO.Path.GetDirectoryName(path);
@@ -92,7 +92,7 @@ namespace Mpir.NET
             if( libpath=="" )
                 if( Assembly.GetEntryAssembly()!=null )
                 {
-                    string codeBase = Assembly.GetEntryAssembly().CodeBase;
+                    string codeBase = Assembly.GetEntryAssembly().EscapedCodeBase;
                     UriBuilder uri = new UriBuilder(codeBase);
                     string path = Uri.UnescapeDataString(uri.Path);
                     libpath = System.IO.Path.GetDirectoryName(path);
