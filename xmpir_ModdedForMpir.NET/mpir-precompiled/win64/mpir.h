@@ -926,6 +926,7 @@ __GMP_DECLSPEC void mpz_urandomm __GMP_PROTO ((mpz_ptr, gmp_randstate_t, mpz_src
 #define mpz_xor __gmpz_xor
 #define mpz_eor __gmpz_xor
 __GMP_DECLSPEC void mpz_xor __GMP_PROTO ((mpz_ptr, mpz_srcptr, mpz_srcptr));
+#define MPZ_ROINIT_N(xp, xs) {{0, (xs),(xp) }}
 /****** Integer (i.e. Z) routines for intmaax_t/uintmax_t types ******/
 /* if stdint.h is available -- n.b: we do NOT include stdint.h ourselves */
 #if defined(INTMAX_MAX)
@@ -962,6 +963,8 @@ __GMP_DECLSPEC int mpq_cmp __GMP_PROTO ((mpq_srcptr, mpq_srcptr)) __GMP_ATTRIBUT
 __GMP_DECLSPEC int _mpq_cmp_si __GMP_PROTO ((mpq_srcptr, mpir_si, mpir_ui)) __GMP_ATTRIBUTE_PURE;
 #define _mpq_cmp_ui __gmpq_cmp_ui
 __GMP_DECLSPEC int _mpq_cmp_ui __GMP_PROTO ((mpq_srcptr, mpir_ui, mpir_ui)) __GMP_ATTRIBUTE_PURE;
+#define mpq_cmp_z __gmpq_cmp_z
+__GMP_DECLSPEC int mpq_cmp_z (mpq_srcptr, mpz_srcptr) __GMP_ATTRIBUTE_PURE;
 #define mpq_div __gmpq_div
 __GMP_DECLSPEC void mpq_div __GMP_PROTO ((mpq_ptr, mpq_srcptr, mpq_srcptr));
 #define mpq_div_2exp __gmpq_div_2exp
@@ -1913,9 +1916,9 @@ enum
 #define __GNU_MP_RELEASE (__GNU_MP_VERSION * 10000 + __GNU_MP_VERSION_MINOR * 100 + __GNU_MP_VERSION_PATCHLEVEL)
 #define __MPIR_VERSION 2
 #define __MPIR_VERSION_MINOR 7 
-#define __MPIR_VERSION_PATCHLEVEL 1 
+#define __MPIR_VERSION_PATCHLEVEL 2 
 #if defined( _MSC_VER )
-#define _MSC_MPIR_VERSION "2.7.1"
+#define _MSC_MPIR_VERSION "2.7.2"
 #endif
 #define __MPIR_RELEASE (__MPIR_VERSION * 10000 + __MPIR_VERSION_MINOR * 100 + __MPIR_VERSION_PATCHLEVEL)
 /* These are for programs like MPFR to use the same CC and CFLAGS as MPIR */
