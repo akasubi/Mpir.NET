@@ -27,3 +27,7 @@
 
 #### 0.3.2 - November 2015
 * Upgraded to MPIR 2.7.1.
+
+#### 0.3.3 - February 2016
+* Fixed handling of '#' in file paths
+* Upgraded to MPIR 2.7.2
