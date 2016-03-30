@@ -181,7 +181,7 @@ namespace Mpir.NET
         private static __Mpir_internal_mpz_export Mpir_internal_mpz_export = (__Mpir_internal_mpz_export)Marshal.GetDelegateForFunctionPointer(__ptr__Mpir_internal_mpz_export, typeof(__Mpir_internal_mpz_export));
         public static unsafe byte[] Mpir_mpz_export(int order, uint size, int endian, uint nails, mpz_t op)
         {
-            uint bufSize = (mpir.mpz_sizeinbase(op, 2) + 8 - 1) / 8;
+            uint bufSize = mpir.mpz_sizeinbase(op, 256);
             var  destBuf = new byte[bufSize];
             fixed (void* destPtr = destBuf) {
                 // null countp argument, because we already know how large the result will be.
