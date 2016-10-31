@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1F1B4F0F-2998-4D74-865B-9122611C2B14}"
 	ProjectSection(SolutionItems) = preProject
@@ -41,14 +41,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpir.NET", "src\Mpir.NET\Mp
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Mpir.NET.Tests", "tests\Mpir.NET.Tests\Mpir.NET.Tests.fsproj", "{34974454-8ECA-4439-9B8F-69C4CA01B263}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsMpir.NET", "src\FsMpir.NET\FsMpir.NET.fsproj", "{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{390C6CDE-5CBC-4EF1-BE4E-496189D4CC11}"
 	ProjectSection(SolutionItems) = preProject
 		nuget\install.ps1 = nuget\install.ps1
 		nuget\Mpir.NET.nuspec = nuget\Mpir.NET.nuspec
 		nuget\publish.cmd = nuget\publish.cmd
 	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsMpir.NET", "src\FsMpir.NET\FsMpir.NET.fsproj", "{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,18 +96,18 @@ Global
 		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Release|x64.Build.0 = Release|x64
 		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Release|x86.ActiveCfg = Release|x86
 		{34974454-8ECA-4439-9B8F-69C4CA01B263}.Release|x86.Build.0 = Release|x86
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|x64.ActiveCfg = Debug|x64
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|x64.Build.0 = Debug|x64
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|x86.ActiveCfg = Debug|x86
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Debug|x86.Build.0 = Debug|x86
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|x64.ActiveCfg = Release|x64
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|x64.Build.0 = Release|x64
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|x86.ActiveCfg = Release|x86
-		{76FFB9E4-742E-406D-AC5D-0DD7A8F5464C}.Release|x86.Build.0 = Release|x86
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Debug|x64.Build.0 = Debug|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Debug|x86.Build.0 = Debug|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Release|x64.ActiveCfg = Release|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Release|x64.Build.0 = Release|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Release|x86.ActiveCfg = Release|Any CPU
+		{455BBAC0-8EC5-4522-ACFE-EE1B8139068B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

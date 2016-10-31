@@ -31,3 +31,7 @@
 #### 0.3.3 - February 2016
 * Fixed handling of '#' in file paths
 * Upgraded to MPIR 2.7.2
+
+#### 0.4.0 - October 2016
+* Fixed PowerMod bug.
+* Upgraded to .NET 4.5

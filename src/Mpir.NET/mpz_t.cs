@@ -1036,7 +1036,7 @@ namespace Mpir.NET
         public mpz_t PowerMod(int exponent, mpz_t mod)
         {
             mpz_t z = new mpz_t();
-            mpir.mpz_powm_ui(z, this, (uint)exponent, mod);
+            mpir.mpz_powm(z, this, exponent, mod);
             return z;
         }
 

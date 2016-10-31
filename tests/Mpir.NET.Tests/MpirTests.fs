@@ -127,7 +127,7 @@ type ``mpz_t - operations`` () =
     static member ``mpir.Abs``(a: string, b: string) =
         use za = new mpz_t(a)
         use zb = new mpz_t(b)
-        let result = za.Abs()
+        use result = za.Abs()
         Assert.AreEqual(result, zb)
 
     [<TestCase("43967907490790576908375907590346925623895", "67907490790576908375907590346925623895")>]
@@ -136,7 +136,7 @@ type ``mpz_t - operations`` () =
     static member ``mpir.Max``(a: string, b: string) =
         use za = new mpz_t(a)
         use zb = new mpz_t(b)
-        let max = mpir.Max(za, zb)
+        use max = mpir.Max(za, zb)
         Assert.AreEqual(za, max)
 
     [<TestCase("43967907490790576908375907590346925623895", "67907490790576908375907590346925623895")>]
@@ -145,5 +145,14 @@ type ``mpz_t - operations`` () =
     static member ``mpir.Min``(a: string, b: string) =
         use za = new mpz_t(a)
         use zb = new mpz_t(b)
-        let min = mpir.Min(za, zb)
+        use min = mpir.Min(za, zb)
         Assert.AreEqual(zb, min)
+
+    [<Test>]
+    static member ``PowerMod with negative exponent``() =
+        use za = 3Z
+        use zb = 7Z
+
+        use actual = za.PowerMod(-1, zb)
+        use expected = 5Z
+        Assert.AreEqual(expected, actual)
